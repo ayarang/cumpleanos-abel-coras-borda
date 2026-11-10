@@ -58,14 +58,14 @@ a{color:inherit}
 .cover h1 .surname{font-size:clamp(27px,5vw,48px);margin-top:11px}
 .cover .rule{margin:15px auto 12px;width:50px;height:2px;opacity:.8}
 .thumb-frame.cover-photo{
- position:relative;width:148px;height:166px;max-width:none;
+ position:relative;width:148px;height:143px;max-width:none;
  overflow:hidden;margin:13px auto 18px;padding:0;transform:none!important;
  border-radius:10px;border:1px solid rgba(235,178,110,.65);
  background:#111719;filter:none;box-shadow:0 12px 33px rgba(0,0,0,.43);
 }
 .thumb-frame.cover-photo::before{content:none}
 .thumb-frame.cover-photo img{
- position:absolute;top:0;left:50%;width:368px;max-width:none;height:auto;
+ position:absolute;top:-14px;left:50%;width:368px;max-width:none;height:auto;
  aspect-ratio:auto;object-fit:initial;transform:translateX(-50%);
  border:0;filter:saturate(.93) brightness(.94);
 }
@@ -84,7 +84,7 @@ a{color:inherit}
  .cover{padding:8px 16px 36px}
  .cover h1{font-size:clamp(69px,18vw,83px)}
  .cover h1 .surname{font-size:clamp(27px,8vw,36px);margin-top:9px}
- .thumb-frame.cover-photo{width:124px;height:145px;margin:13px auto 14px}
+ .thumb-frame.cover-photo{width:124px;height:126px;margin:13px auto 14px}
  .thumb-frame.cover-photo img{width:315px}
  .cover-reflection{max-width:355px;font-size:12px;line-height:1.65}
  .cover-wish{font-size:13px}
@@ -93,7 +93,7 @@ a{color:inherit}
 @media(max-height:720px) and (max-width:600px){
  .cover{padding-top:6px;padding-bottom:24px}
  .cover h1{font-size:clamp(58px,17vw,73px)}
- .thumb-frame.cover-photo{width:112px;height:128px;margin:9px auto}
+ .thumb-frame.cover-photo{width:112px;height:116px;margin:9px auto}
  .thumb-frame.cover-photo img{width:280px}
  .cover-reflection{font-size:11px;line-height:1.6}
  .cover .birthday-countdown{margin-bottom:7px}
