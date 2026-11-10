@@ -3,230 +3,133 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#081821">
-<meta name="description" content="Una tarjeta de cumpleaños interactiva, hecha para sorprender.">
-<title>¡Feliz cumpleaños! · Una sorpresa especial</title>
+<meta name="theme-color" content="#101213">
+<meta name="description" content="Álbum de cumpleaños para Abel Coras Borda.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="¡Feliz cumpleaños, Abel Coras Borda! 🏍️">
+<meta property="og:description" content="Una sorpresa en fotografías, hecha especialmente para Abel.">
+<meta property="og:image" content="https://ayarang.github.io/simulador-de-jugos/tarjeta-cumpleanos/assets/album-abel.webp">
+<title>Abel Coras Borda · Álbum de cumpleaños 🏍️</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/album-abel.webp" as="image" type="image/webp">
 <style>
-:root{color-scheme:dark;--bg:#081821;--ink:#f6f8f3;--muted:#a7bac0;--gold:#edc784;--teal:#72d4d1;--border:rgba(233,212,173,.23)}
+:root{color-scheme:dark;--black:#0c0f11;--ash:#24272a;--smoke:#9ba1a4;--orange:#fa9a3f;--paper:#f5f2e8}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{min-height:100svh;margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.65 "DM Sans",system-ui,sans-serif;overflow-x:hidden}
-button,input{font:inherit}button{cursor:pointer;touch-action:manipulation}button:focus-visible,input:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+body{margin:0;min-height:100svh;overflow-x:hidden;background:#0c0f11;color:var(--paper);font:400 15px/1.6 "DM Sans",sans-serif}
 [hidden]{display:none!important}
+button{font:inherit;cursor:pointer;touch-action:manipulation}
+button:focus-visible,a:focus-visible{outline:3px solid var(--orange);outline-offset:4px}
+img{display:block;max-width:100%}
 a{color:inherit}
-#confetti{position:fixed;inset:0;width:100vw;height:100vh;z-index:12;pointer-events:none}
-.page{position:relative;min-height:100svh;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse 80% 55% at 50% 15%,#22566a65,transparent 67%),radial-gradient(ellipse 80% 70% at 100% 100%,#1547487c,transparent 80%),#081821}
-.page::before{position:absolute;content:"";width:640px;height:640px;left:50%;top:10%;border-radius:50%;border:1px solid #deb87923;transform:translateX(-50%);box-shadow:0 0 0 90px #a2e0e508,0 0 0 200px #c5b67f06;pointer-events:none}
-.page::after{position:absolute;content:"✦";font-size:clamp(110px,15vw,230px);right:-29px;bottom:25px;color:#edd08c16;transform:rotate(12deg);pointer-events:none}
-.topbar{position:relative;z-index:5;max-width:1100px;margin:0 auto;padding:24px clamp(18px,5vw,50px);display:flex;align-items:center;justify-content:space-between;gap:16px}
-.brand{display:flex;align-items:center;gap:11px;color:#e9ded1;font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase}
-.brand-icon{display:grid;place-items:center;width:34px;height:34px;border:1px solid #ecc78450;border-radius:11px;color:var(--gold);font-size:21px}
-.ghost{border:1px solid #f4dbaf55;border-radius:100px;background:#14303bd9;color:#e9ddd0;padding:11px 17px;font-size:12px;font-weight:800;transition:background .2s,transform .2s}
-.ghost:hover{background:#214753;transform:translateY(-2px)}
-.hero{position:relative;z-index:2;display:grid;place-items:center;text-align:center;min-height:calc(100svh - 100px);padding:17px 20px 70px}
-.inner{max-width:840px;margin:0 auto}
-.eyebrow{display:inline-flex;align-items:center;gap:11px;color:#e7c68c;font-size:10px;font-weight:800;letter-spacing:.31em;text-transform:uppercase}
-.eyebrow::before,.eyebrow::after{content:"";display:block;width:25px;height:1px;background:#d6b277a8}
-.hero h1{margin:19px 0 12px;font:700 clamp(55px,10.5vw,110px)/.97 "Outfit",sans-serif;letter-spacing:-.075em}
-.hero h1 span{display:block;background:linear-gradient(100deg,#fff6dc,#e9c488 45%,#8bd2c9 95%);color:transparent;-webkit-background-clip:text;background-clip:text;padding-bottom:.09em}
-.sub{max-width:560px;margin:13px auto 0;color:#aec2c6;font-size:clamp(14px,2vw,17px);line-height:1.85}
-.line{height:1px;width:65px;margin:30px auto 22px;background:linear-gradient(90deg,transparent,#dfbf87,transparent)}
-.gift{position:relative;margin:30px auto 27px;width:clamp(145px,34vw,195px);height:184px;display:grid;place-items:center;cursor:pointer;border:0;background:none;filter:drop-shadow(0 28px 30px #0005);animation:gift-float 4s ease-in-out infinite}
-.gift-lid{position:absolute;top:30px;left:20px;width:calc(100% - 40px);height:34px;border-radius:7px;background:linear-gradient(135deg,#e9c88e,#ad8152);box-shadow:0 8px 0 #866640;transform:rotate(-5deg)}
-.gift-box{position:absolute;top:66px;left:26px;width:calc(100% - 52px);height:106px;border-radius:3px 3px 10px 10px;background:linear-gradient(145deg,#285260,#0c303b);border:2px solid #dcb67780;box-shadow:inset 0 0 20px #e1d0a615,0 15px 20px #0004}
-.ribbon{position:absolute;top:31px;bottom:12px;left:calc(50% - 9px);width:18px;background:linear-gradient(90deg,#af8350,#f7d9a1,#af8350);transform:rotate(-1deg)}
-.bow{position:absolute;top:3px;left:50%;transform:translateX(-50%);font-size:57px;color:#e7bf7f;text-shadow:0 5px 6px #0004;line-height:1}
-.shine{position:absolute;color:var(--gold);font-size:20px;animation:shine 3s ease-in-out infinite}
-.shine.a{left:-10px;top:36px}.shine.b{right:-3px;top:85px;animation-delay:-1.4s}
-.primary{display:inline-flex;align-items:center;justify-content:center;gap:12px;border:1px solid #fff0bf70;border-radius:100px;min-height:55px;padding:16px 29px;color:#132630;background:linear-gradient(110deg,#f1d398,#dfb875);box-shadow:0 13px 31px #0004,0 2px 12px #e7c18f24;font-weight:900;transition:transform .22s,filter .22s}
-.primary:hover{transform:translateY(-3px);filter:brightness(1.06)}
-.primary:active{transform:translateY(1px)}
-.micro{font-size:11px;color:#7e9aa3;margin:18px auto 0}
-.main-card{position:relative;z-index:3;max-width:910px;margin:18px auto 66px;padding:0 18px}
-.celebration{position:relative;text-align:center;background:linear-gradient(149deg,#143a46,#0b2330 60%,#0d2730);border:1px solid #d7bc8059;border-radius:30px;padding:clamp(28px,6vw,70px) clamp(21px,5vw,66px);box-shadow:0 30px 100px #0006, inset 0 0 0 1px #ffffff09;overflow:hidden;animation:card-arrive .9s cubic-bezier(.18,.9,.19,1) both}
-.celebration::before{content:"";position:absolute;width:300px;height:300px;top:-210px;left:50%;transform:translateX(-50%);background:#d8b57469;filter:blur(90px);border-radius:50%}
-.celebration>*{position:relative;z-index:1}
-.chapter{font-size:10px;letter-spacing:.32em;font-weight:800;text-transform:uppercase;color:#edcb8f;margin:0 0 17px}
-.celebration h2{margin:0;font:800 clamp(34px,7vw,70px)/1.07 "Outfit",sans-serif;letter-spacing:-.055em}
-.celebration h2 em{color:#efca8a;font-style:normal}
-.celebration .lead{max-width:585px;margin:18px auto 0;color:#c2d1d1;font-size:15px;line-height:1.85}
-.cake-art{display:block;max-width:min(360px,90%);width:100%;margin:25px auto 4px;filter:drop-shadow(0 23px 20px #0008)}
-.cake-flame{transform-origin:center;animation:flame 1.7s ease-in-out infinite alternate}
-.cake-flame:nth-child(2){animation-delay:-.45s}.cake-flame:nth-child(3){animation-delay:-.9s}
-.letter{max-width:650px;margin:26px auto 0;border:1px solid #e3cb9365;border-radius:16px;background:#ffffff0b;text-align:left;overflow:hidden}
-.letter summary{list-style:none;display:flex;align-items:center;justify-content:space-between;padding:17px 21px;color:#f3e3cb;font-weight:800;cursor:pointer}
-.letter summary::-webkit-details-marker{display:none}
-.letter summary span{color:#f0c984;font-size:20px;transition:transform .2s}
-.letter[open] summary span{transform:rotate(45deg)}
-.letter-body{padding:0 22px 20px;color:#bdd0d1;font-size:14px;line-height:1.95}
-.letter-body p{margin:0 0 14px}
-.letter-body p:last-child{color:#f1d395;font-weight:800;margin-bottom:0}
-.actions{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:13px;margin:29px auto 0}
-.footer{color:#729199;font-size:11px;text-align:center;margin:25px auto 0;letter-spacing:.07em}
-dialog{border:1px solid #edc98880;border-radius:23px;padding:26px;max-width:min(440px,calc(100vw - 30px));width:100%;background:#112c37;color:#fff;box-shadow:0 20px 85px #0008}
-dialog::backdrop{background:#051016c9;backdrop-filter:blur(6px)}
-dialog h3{font:700 26px/1.2 "Outfit",sans-serif;margin:0 0 10px}
-dialog p{font-size:13px;color:#b7c7c8}
-dialog label{display:block;font-weight:800;font-size:12px;margin:19px 0 8px}
-dialog input{display:block;width:100%;background:#071e28;color:#fff;border:1px solid #a0bcc38a;border-radius:12px;padding:14px 15px;min-height:47px}
-.dialog-actions{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;margin-top:19px}
-.toast{position:fixed;z-index:30;left:50%;bottom:25px;transform:translateX(-50%);max-width:calc(100vw - 28px);white-space:nowrap;background:#ebcb92;color:#10242e;padding:11px 21px;border-radius:99px;font-size:13px;font-weight:900;box-shadow:0 12px 35px #0008}
-.sparkle{position:absolute;width:4px;height:4px;border-radius:50%;background:var(--gold);opacity:.65;pointer-events:none;box-shadow:0 0 20px #f9d6a1}
-@keyframes gift-float{50%{transform:translateY(-9px) rotate(2deg)}}
-@keyframes shine{50%{opacity:.2;transform:scale(.7) rotate(30deg)}}
-@keyframes card-arrive{from{transform:translateY(35px) scale(.96);opacity:0}to{transform:none;opacity:1}}
-@keyframes flame{to{transform:scaleY(.8) translateY(1px)}}
-@media(max-width:540px){.topbar{padding:20px}.brand{font-size:9px;letter-spacing:.09em}.ghost{padding:10px 12px}.hero{padding-top:5px}.hero h1{font-size:clamp(52px,15vw,78px)}.gift{height:161px;transform:scale(.9);margin:15px auto 17px}.celebration{border-radius:21px}.main-card{padding-inline:13px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+#burst{position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:30}
+.layout{min-height:100svh;position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse 75% 55% at 50% 25%,#383b3f70,transparent 75%),radial-gradient(ellipse 70% 85% at 100% 100%,#38201170,transparent 75%),#0c0f11}
+.layout::before{content:"";position:absolute;inset:0;z-index:0;opacity:.13;pointer-events:none;background:repeating-linear-gradient(122deg,transparent 0 42px,#adb0ad 43px,#adb0ad 44px,transparent 45px 88px);mask-image:linear-gradient(90deg,#000,transparent 35%,transparent 65%,#000)}
+.layout::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.14;background:radial-gradient(circle at 27% 17%,#ffad60,transparent 4%),radial-gradient(circle at 85% 85%,#ffae61,transparent 6%)}
+.topbar{position:relative;z-index:2;max-width:1120px;margin:auto;padding:23px clamp(18px,5vw,50px);display:flex;justify-content:space-between;align-items:center;gap:14px}
+.brand{display:flex;align-items:center;gap:12px;font-size:11px;letter-spacing:.19em;font-weight:800;text-transform:uppercase;color:#e9e2d6}
+.brand-mark{display:grid;place-items:center;width:34px;height:34px;background:var(--orange);color:#1b1c1b;border-radius:50% 50% 40% 40%;font-size:18px;box-shadow:0 0 22px #ff9d4b4d}
+.topbar .edition{font-size:10px;color:#d79f67;font-weight:800;letter-spacing:.19em;text-transform:uppercase;text-align:right}
+.cover{min-height:calc(100svh - 83px);position:relative;z-index:1;display:grid;place-items:center;padding:30px 20px 65px;text-align:center}
+.cover-inner{width:min(100%,930px)}
+.cover-eyebrow{color:#eba45a;letter-spacing:.3em;text-transform:uppercase;font-size:10px;font-weight:800;margin:0 0 7px}
+.cover h1{font:900 clamp(79px,16vw,180px)/.79 "Barlow Condensed",Impact,sans-serif;letter-spacing:-.04em;color:#f4f1eb;margin:15px auto 0}
+.cover h1 span{display:block;background:linear-gradient(110deg,#f1f0e9,#d6ddd9);background-clip:text;-webkit-background-clip:text;color:transparent}
+.cover h1 .surname{font-size:clamp(30px,6.2vw,69px);line-height:1.1;letter-spacing:.025em;margin-top:17px;color:#e1a364;background:none}
+.rule{width:76px;height:3px;border-radius:30px;margin:20px auto 20px;background:linear-gradient(90deg,#ce7943,#ffb567)}
+.cover-sub{font-size:11px;color:#aba9a6;letter-spacing:.26em;text-transform:uppercase;font-weight:800}
+.thumb-frame{position:relative;max-width:255px;margin:23px auto 23px;filter:drop-shadow(0 15px 26px #000a);transform:rotate(-5deg);transition:transform .4s}
+.thumb-frame::before{content:"";position:absolute;z-index:-1;inset:-10px;border:1px solid #ff9d51a6;transform:rotate(8deg)}
+.thumb-frame img{border:5px solid #e9e1d0;width:100%;aspect-ratio:4/5;object-fit:cover;filter:saturate(.78) brightness(.75)}
+.cover:hover .thumb-frame{transform:rotate(-2deg) translateY(-2px)}
+.cta{border:0;border-radius:100px;padding:15px 28px;min-height:54px;display:inline-flex;align-items:center;gap:14px;justify-content:center;background:linear-gradient(112deg,#ffb875,#ed8c3d);color:#101313;font-weight:900;box-shadow:0 12px 35px #0009,0 0 32px #fa983c36;transition:transform .2s,filter .2s}
+.cta:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.cta:active{transform:translateY(1px)}
+.cta span{font-size:19px}
+.cover-foot{margin-top:18px;font-size:10px;color:#7b8282;letter-spacing:.14em}
+.album{position:relative;z-index:2;min-height:100svh;padding:5px 18px 68px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.album-head{padding:11px 5px 10px}
+.album-head .overline{display:block;color:#e79e58;font-size:10px;font-weight:800;letter-spacing:.29em;text-transform:uppercase}
+.album-head h2{font:800 clamp(37px,8vw,70px)/1 "Barlow Condensed",Impact,sans-serif;text-transform:uppercase;letter-spacing:.02em;margin:7px 0 0}
+.album-head h2 span{color:#f7a052}
+.album-image{position:relative;isolation:isolate;width:min(100%,550px);margin:25px auto 13px;border:1px solid #e6984c8a;padding:6px;background:#202325;box-shadow:0 26px 80px #000c,0 0 70px #fa883316}
+.album-image::before{content:"";position:absolute;inset:-16px;z-index:-1;background:linear-gradient(125deg,#d1824d55,#6c6c6c33,#ca7b3b44);filter:blur(26px)}
+.album-image img{display:block;width:100%;height:auto;aspect-ratio:561/701;object-fit:contain}
+.album-actions{display:flex;gap:11px;justify-content:center;align-items:center;flex-wrap:wrap;margin:22px auto 0}
+.secondary{border:1px solid #f7a75b65;background:#252627;color:#e8ded1;border-radius:100px;padding:12px 19px;min-height:44px;font-size:12px;font-weight:800;transition:background .2s}
+.secondary:hover{background:#3a3530}
+.credit{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#848787;margin:24px auto 0}
+.toast{position:fixed;z-index:70;bottom:max(20px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);font-size:12px;font-weight:900;color:#1c1c1b;background:#ffb471;border-radius:100px;padding:11px 20px;white-space:nowrap;box-shadow:0 12px 40px #0008}
+.album.show{animation:rise .55s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(20px) scale(.98)}to{opacity:1;transform:none}}
+@media(max-width:450px){.topbar{padding:18px 17px}.brand{font-size:10px;letter-spacing:.12em}.topbar .edition{font-size:9px}.cover{padding:10px 17px 54px}.cover h1{font-size:clamp(74px,23vw,112px)}.cover h1 .surname{font-size:clamp(27px,9vw,45px)}.thumb-frame{max-width:195px;margin-top:20px;margin-bottom:23px}.album-head h2{font-size:clamp(38px,12vw,58px)}.album-image{margin-top:18px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.album.show,.thumb-frame,.cta{animation:none;transition:none}}
 </style>
 </head>
 <body>
-<canvas id="confetti" aria-hidden="true"></canvas>
-<div class="page">
+<canvas id="burst" aria-hidden="true"></canvas>
+<div class="layout">
  <header class="topbar">
-  <span class="brand"><span class="brand-icon" aria-hidden="true">✦</span>Una sorpresa especial</span>
-  <button type="button" class="ghost" id="customize">Personalizar ✎</button>
+  <div class="brand"><span class="brand-mark" aria-hidden="true">✦</span>EDICIÓN ESPECIAL</div>
+  <div class="edition">ÁLBUM DE CUMPLEAÑOS<br>🏍️</div>
  </header>
- <section class="hero" id="cover" aria-labelledby="cover-title">
-  <div class="inner">
-    <p class="eyebrow">EDICIÓN DE CUMPLEAÑOS</p>
-    <h1 id="cover-title">Hoy se celebra<span>en grande.</span></h1>
-    <p class="sub">Alguien merece un buen día, muchas razones para sonreír y una pequeña sorpresa hecha especialmente para él.</p>
-    <button class="gift" id="open-gift" type="button" aria-label="Abrir el regalo de cumpleaños">
-      <span class="shine a" aria-hidden="true">✦</span><span class="shine b" aria-hidden="true">✧</span>
-      <span class="gift-box" aria-hidden="true"></span><span class="ribbon" aria-hidden="true"></span><span class="gift-lid" aria-hidden="true"></span><span class="bow" aria-hidden="true">∞</span>
-    </button>
-    <button type="button" class="primary" id="start">Abrir mi sorpresa <span aria-hidden="true">↗</span></button>
-    <p class="micro">Toca el regalo. Lo mejor viene después.</p>
+ <section class="cover" id="cover" aria-labelledby="cover-name">
+  <div class="cover-inner">
+   <p class="cover-eyebrow">Feliz cumpleaños</p>
+   <h1 id="cover-name"><span>ABEL</span><span class="surname">CORAS BORDA</span></h1>
+   <div class="rule"></div>
+   <p class="cover-sub">Un álbum especial para ti</p>
+   <div class="thumb-frame" aria-hidden="true"><img src="assets/album-abel.webp" width="1122" height="1402" alt="" fetchpriority="high"></div>
+   <button class="cta" id="open-album" type="button">Abrir álbum <span aria-hidden="true">↗</span></button>
+   <p class="cover-foot">UNA SORPRESA EN FOTOGRAFÍAS</p>
   </div>
  </section>
- <main class="main-card" id="experience" hidden>
-  <section class="celebration" aria-labelledby="birthday-title">
-   <p class="chapter">UN DÍA PARA RECORDAR · FELIZ CUMPLEAÑOS</p>
-   <h2 id="birthday-title" tabindex="-1">¡Feliz cumpleaños,<br><em id="person">crack</em>!</h2>
-   <p class="lead">Que este nuevo año venga con buena salud, motivos para celebrar, metas cumplidas y momentos que valgan la pena. ¡Te lo mereces!</p>
-   <svg class="cake-art" viewBox="0 0 400 265" role="img" aria-labelledby="cake-name">
-    <title id="cake-name">Torta de cumpleaños moderna con velas encendidas</title>
-    <defs>
-     <linearGradient id="side" x2="1" y2="1"><stop stop-color="#326a74"/><stop offset="1" stop-color="#16414f"/></linearGradient>
-     <linearGradient id="top" x2="0" y2="1"><stop stop-color="#f8e1b2"/><stop offset="1" stop-color="#d3a867"/></linearGradient>
-     <radialGradient id="light"><stop stop-color="#fffdc8"/><stop offset=".55" stop-color="#ffdf75"/><stop offset="1" stop-color="#eea75a"/></radialGradient>
-    </defs>
-    <ellipse cx="200" cy="235" rx="152" ry="16" fill="#071821" opacity=".45"/>
-    <path d="M55 130V209Q55 235 200 235Q345 235 345 209V130Z" fill="url(#side)" stroke="#d9c18a" stroke-width="2"/>
-    <ellipse cx="200" cy="131" rx="145" ry="42" fill="#dbbf80"/>
-    <ellipse cx="200" cy="123" rx="142" ry="39" fill="url(#top)"/>
-    <path d="M64 137Q82 182 101 147Q122 178 142 147Q166 186 184 151Q206 187 225 151Q244 183 267 145Q300 183 328 138" fill="none" stroke="#f7e7b9" stroke-width="16" stroke-linecap="round"/>
-    <g fill="#f4db9a"><circle cx="99" cy="199" r="5"/><circle cx="144" cy="212" r="4"/><circle cx="194" cy="219" r="5"/><circle cx="255" cy="215" r="4"/><circle cx="298" cy="199" r="5"/></g>
-    <g stroke="#d9a76c" stroke-width="11" stroke-linecap="round"><path d="M160 97V63"/><path d="M200 87V47"/><path d="M240 97V63"/></g>
-    <g stroke="#fdf6d8" stroke-width="3"><path d="M160 97V63"/><path d="M200 87V47"/><path d="M240 97V63"/></g>
-    <g fill="url(#light)"><path class="cake-flame" d="M160 43Q175 61 160 68Q146 60 160 43Z"/><path class="cake-flame" d="M200 27Q217 44 200 51Q182 43 200 27Z"/><path class="cake-flame" d="M240 43Q255 61 240 68Q226 60 240 43Z"/></g>
-    <text x="200" y="177" text-anchor="middle" font-family="Outfit,Arial" font-size="20" font-weight="800" fill="#f9e8cc" letter-spacing="2">FELICIDADES</text>
-   </svg>
-   <details class="letter" id="message">
-    <summary>Hay algo más para ti <span aria-hidden="true">+</span></summary>
-    <div class="letter-body">
-     <p>Que nunca te falten las ganas de seguir adelante. Ojalá este nuevo año te traiga buenos momentos, proyectos que salgan bien y personas que sumen a tu vida.</p>
-     <p>Disfruta tu día, celebra a tu manera y sigue construyendo cosas grandes.</p>
-     <p>¡Un abrazo y feliz cumpleaños! 🎉</p>
-    </div>
-   </details>
-   <div class="actions">
-    <button class="primary" id="celebrate-again" type="button">¡Otra vez! ✦</button>
-    <button class="ghost" id="share" type="button">Compartir tarjeta ↗</button>
-    <button class="ghost" id="back" type="button">Ver el regalo de nuevo ⟲</button>
-   </div>
-   <p class="footer">HECHO PARA CELEBRAR · CON BUENAS VIBRAS ✦</p>
-  </section>
+ <main class="album" id="album" hidden aria-labelledby="album-title">
+  <div class="album-head"><span class="overline">EDICIÓN DE CUMPLEAÑOS</span><h2 id="album-title" tabindex="-1">¡Feliz cumpleaños, <span>Abel!</span></h2></div>
+  <figure class="album-image"><img src="assets/album-abel.webp" width="1122" height="1402" alt="Álbum de Abel Coras Borda: cuatro fotos de su aventura en la montaña en un collage con diseño inspirado en motos." decoding="async"></figure>
+  <div class="album-actions">
+   <button class="cta" type="button" id="again">¡Otra vez! <span aria-hidden="true">✦</span></button>
+   <button class="secondary" type="button" id="share">Compartir ↗</button>
+   <button class="secondary" type="button" id="return">Volver al inicio ↺</button>
+  </div>
+  <p class="credit">ABEL CORAS BORDA · ÁLBUM FOTOGRÁFICO</p>
  </main>
 </div>
-<dialog id="name-dialog" aria-labelledby="dialog-title">
- <form id="name-form">
-  <h3 id="dialog-title">Un detalle más personal</h3>
-  <p>Escribe su nombre. El enlace se actualizará para que puedas compartir esta tarjeta con él.</p>
-  <label for="name-input">Nombre del cumpleañero</label>
-  <input id="name-input" type="text" maxlength="36" autocomplete="off" placeholder="Por ejemplo: Luis" />
-  <div class="dialog-actions">
-   <button type="button" id="cancel" class="ghost">Cancelar</button>
-   <button type="submit" class="primary">Guardar nombre ✦</button>
-  </div>
- </form>
-</dialog>
 <p class="toast" id="toast" role="status" hidden></p>
 <script>
-'use strict';
-(function(){
+(() => {
  const $=id=>document.getElementById(id);
- const cover=$('cover'),experience=$('experience'),person=$('person'),modal=$('name-dialog'),input=$('name-input');
- const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
- let receiver='crack',noticeTimer=0,confetti=[],anim=0;
- const canvas=$('confetti'),ctx=canvas.getContext('2d');
- const palette=['#e9c789','#fff6c7','#73d5d2','#d5ede4','#c18d56','#f0e5d2'];
- function clean(value){return String(value||'').replace(/[\u0000-\u001F\u007F<>]/g,'').trim().slice(0,36)}
- function setName(value,updateLink){
-   receiver=clean(value)||'crack';
-   person.textContent=receiver;
-   document.title='¡Feliz cumpleaños, '+receiver+'! · Una sorpresa';
-   if(updateLink){
-     const url=new URL(location.href);
-     if(receiver==='crack')url.searchParams.delete('para');else url.searchParams.set('para',receiver);
-     history.replaceState(null,'',url.pathname+url.search+url.hash);
-   }
- }
- setName(new URLSearchParams(location.search).get('para'),false);
- function size(){const dpr=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(innerWidth*dpr);canvas.height=Math.round(innerHeight*dpr);canvas.style.width=innerWidth+'px';canvas.style.height=innerHeight+'px';ctx.setTransform(dpr,0,0,dpr,0,0)}
- size();addEventListener('resize',size,{passive:true});
- function animate(){
-   ctx.clearRect(0,0,innerWidth,innerHeight);
-   const now=performance.now();
-   confetti=confetti.filter(p=>now-p.birth<p.life && p.y<innerHeight+50);
-   for(const p of confetti){
-     const fraction=(now-p.birth)/p.life;
-     p.vy+=.13;p.x+=p.vx;p.y+=p.vy;p.rotation+=p.spin;
-     ctx.save();ctx.globalAlpha=Math.min(1,Math.max(0,(1-fraction)*1.7));ctx.translate(p.x,p.y);ctx.rotate(p.rotation);ctx.fillStyle=p.color;ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);ctx.restore();
-   }
-   if(confetti.length)anim=requestAnimationFrame(animate);
-   else{cancelAnimationFrame(anim);anim=0;ctx.clearRect(0,0,innerWidth,innerHeight)}
+ const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const cover=$('cover'),album=$('album'),canvas=$('burst'),ctx=canvas.getContext('2d');
+ let particles=[],frame=0,noticeTimer=0;
+ function resize(){const d=Math.min(window.devicePixelRatio||1,2);canvas.width=innerWidth*d;canvas.height=innerHeight*d;canvas.style.width=innerWidth+'px';canvas.style.height=innerHeight+'px';ctx.setTransform(d,0,0,d,0,0);}
+ resize();addEventListener('resize',resize,{passive:true});
+ function tick(){
+  ctx.clearRect(0,0,innerWidth,innerHeight);
+  particles=particles.filter(p=>p.life>0&&p.y<innerHeight+35);
+  for(const p of particles){p.life--;p.vy+=.10;p.x+=p.vx;p.y+=p.vy;p.rot+=p.spin;ctx.save();ctx.globalAlpha=Math.min(1,p.life/43);ctx.translate(p.x,p.y);ctx.rotate(p.rot);ctx.fillStyle=p.color;ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);ctx.restore();}
+  if(particles.length)frame=requestAnimationFrame(tick);else{frame=0;ctx.clearRect(0,0,innerWidth,innerHeight)}
  }
  function burst(){
-   if(reduce||!ctx)return;
-   const now=performance.now();
-   for(let i=0;i<125;i++){
-     const angle=Math.random()*Math.PI*2,speed=Math.random()*7+2;
-     confetti.push({x:innerWidth*.5,y:innerHeight*.32,vx:Math.cos(angle)*speed,vy:Math.sin(angle)*speed-5,birth:now,life:1700+Math.random()*1300,rotation:Math.random()*6,spin:(Math.random()-.5)*.17,color:palette[i%palette.length],w:3+Math.random()*5,h:5+Math.random()*9});
-   }
-   if(!anim)anim=requestAnimationFrame(animate);
+  if(reduce||!ctx)return;
+  const colors=['#f9a151','#f4d3a2','#f5f5ee','#77a7a1','#e8a962'];
+  for(let i=0;i<130;i++){const a=Math.random()*Math.PI*2,v=2+Math.random()*7;particles.push({x:innerWidth/2,y:Math.min(innerHeight*.25,210),vx:Math.cos(a)*v,vy:Math.sin(a)*v-3.8,rot:Math.random()*6.3,spin:(Math.random()-.5)*.17,w:3+Math.random()*6,h:4+Math.random()*11,life:75+Math.random()*75,color:colors[i%colors.length]});}
+  if(!frame)frame=requestAnimationFrame(tick);
  }
- function reveal(){
-   cover.hidden=true;experience.hidden=false;
-   scrollTo({top:0,behavior:'instant'});
-   $('birthday-title').focus({preventScroll:true});
-   burst();
- }
- $('start').addEventListener('click',reveal);
- $('open-gift').addEventListener('click',reveal);
- $('celebrate-again').addEventListener('click',burst);
- $('back').addEventListener('click',()=>{experience.hidden=true;cover.hidden=false;$('message').open=false;scrollTo({top:0,behavior:'instant'});$('open-gift').focus({preventScroll:true})});
- $('message').addEventListener('toggle',()=>{if($('message').open)burst()});
- function notice(msg){
-   const el=$('toast');el.textContent=msg;el.hidden=false;clearTimeout(noticeTimer);noticeTimer=setTimeout(()=>{el.hidden=true},3000)
- }
- $('customize').addEventListener('click',()=>{input.value=receiver==='crack'?'':receiver;modal.showModal();setTimeout(()=>input.focus(),0)});
- $('cancel').addEventListener('click',()=>modal.close());
- $('name-form').addEventListener('submit',e=>{e.preventDefault();setName(input.value,true);modal.close();notice('¡Tarjeta personalizada! ✦')});
- async function share(){
-   const data={title:'Una sorpresa de cumpleaños',text:'Te hice esta tarjeta de cumpleaños. ¡Ábrela! 🎉',url:location.href};
-   if(navigator.share){try{await navigator.share(data);return}catch(e){if(e.name==='AbortError')return}}
-   try{if(navigator.clipboard&&navigator.clipboard.writeText){await navigator.clipboard.writeText(location.href);notice('¡Enlace copiado!');return}}catch(e){}
-   const tmp=document.createElement('textarea');tmp.value=location.href;tmp.style.position='fixed';tmp.style.opacity='0';document.body.appendChild(tmp);tmp.select();
-   const ok=document.execCommand('copy');tmp.remove();
-   if(ok)notice('¡Enlace copiado!');else prompt('Copia el enlace:',location.href);
- }
- $('share').addEventListener('click',share);
- document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(anim);anim=0;confetti=[];ctx.clearRect(0,0,innerWidth,innerHeight)}});
+ function show(){cover.hidden=true;album.hidden=false;album.classList.add('show');window.scrollTo({top:0,behavior:'instant'});$('album-title').focus({preventScroll:true});burst();}
+ $('open-album').addEventListener('click',show);
+ $('again').addEventListener('click',burst);
+ $('return').addEventListener('click',()=>{album.hidden=true;album.classList.remove('show');cover.hidden=false;window.scrollTo({top:0,behavior:'instant'});$('open-album').focus({preventScroll:true})});
+ function notice(msg){const el=$('toast');el.textContent=msg;el.hidden=false;clearTimeout(noticeTimer);noticeTimer=setTimeout(()=>el.hidden=true,3000)}
+ $('share').addEventListener('click',async()=>{
+  const data={title:'Álbum de cumpleaños para Abel Coras Borda',text:'¡Feliz cumpleaños, Abel! 🏍️',url:location.href.split('#')[0]};
+  if(navigator.share){try{await navigator.share(data);return}catch(e){if(e.name==='AbortError')return}}
+  try{await navigator.clipboard.writeText(data.url);notice('¡Enlace copiado!');return}catch(e){}
+  window.prompt('Copia el enlace:',data.url);
+ });
+ document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(frame);frame=0;particles=[];ctx.clearRect(0,0,innerWidth,innerHeight)}});
 })();
 </script>
 </body>
