@@ -12,15 +12,24 @@ const {burst}=initConfetti($('burst'));
 initBirthday();
 
 let noticeTimer=0;
+const motionReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let opening=false;
 function showAlbum(){
-  cover.hidden=true;
-  album.hidden=false;
-  album.classList.remove('show');
-  void album.offsetWidth;
-  album.classList.add('show');
-  window.scrollTo({top:0,behavior:'instant'});
-  $('album-title').focus({preventScroll:true});
-  burst();
+  if(opening)return;
+  opening=true;
+  cover.classList.add('is-exiting');
+  window.setTimeout(()=>{
+    cover.hidden=true;
+    cover.classList.remove('is-exiting');
+    album.hidden=false;
+    album.classList.remove('show');
+    void album.offsetWidth;
+    album.classList.add('show');
+    window.scrollTo({top:0,behavior:'instant'});
+    $('album-title').focus({preventScroll:true});
+    burst();
+    opening=false;
+  },motionReduced?0:390);
 }
 function returnToCover(){
   album.hidden=true;
@@ -54,3 +63,19 @@ $('open-album').addEventListener('click',showAlbum);
 $('again').addEventListener('click',burst);
 $('return').addEventListener('click',returnToCover);
 $('share').addEventListener('click',shareAlbum);
+const imageModal=$('album-modal'),zoomButton=$('zoom-album'),closeModalButton=$('close-album');
+zoomButton.addEventListener('click',()=>{
+  if(typeof imageModal.showModal!=='function'){
+    window.open('assets/album-abel.webp','_blank','noopener');
+    return;
+  }
+  imageModal.showModal();
+  document.body.classList.add('album-open');
+  closeModalButton.focus({preventScroll:true});
+});
+closeModalButton.addEventListener('click',()=>imageModal.close());
+imageModal.addEventListener('click',event=>{if(event.target===imageModal)imageModal.close()});
+imageModal.addEventListener('close',()=>{
+  document.body.classList.remove('album-open');
+  zoomButton.focus({preventScroll:true});
+});

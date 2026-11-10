@@ -30,9 +30,9 @@
    <time class="birthday-date" datetime="2026-11-11"><span>MIÉRCOLES</span><strong>11</strong><span>NOVIEMBRE<br>2026</span></time>
    <h1 id="cover-name"><span>ABEL</span><span class="surname">CORAS BORDA</span></h1>
    <div class="rule"></div>
-   <div class="thumb-frame cover-photo" role="img" aria-label="Fotografía de Abel sentado sobre una roca frente a un paisaje de montañas">
-     <img src="assets/album-abel.webp" width="1122" height="1402" alt="" fetchpriority="high" aria-hidden="true">
-   </div>
+   <figure class="cover-portrait">
+     <img src="assets/abel-portada.jpg" width="160" height="200" alt="Abel sentado en una roca frente a un paisaje de montañas" fetchpriority="high" decoding="async">
+   </figure>
    <p class="cover-reflection">Hay personas que avanzan en silencio, pero dejan huella en cada camino.<br><span>Que este nuevo año te traiga claridad, fuerza y buenos momentos.</span></p>
    <p class="cover-wish">Feliz cumpleaños, Abel.</p>
    <p class="birthday-countdown" id="birthday-countdown" aria-live="off"></p>
@@ -42,15 +42,28 @@
  </section>
  <main class="album" id="album" hidden aria-labelledby="album-title">
   <div class="album-head"><span class="overline">11 DE NOVIEMBRE DE 2026 · EDICIÓN ESPECIAL</span><h2 id="album-title" tabindex="-1">Feliz cumpleaños, <span>Abel.</span></h2></div>
-  <figure class="album-image"><img src="assets/album-abel.webp" width="1122" height="1402" alt="Álbum de Abel Coras Borda: cuatro fotos de su aventura en la montaña en un collage con diseño inspirado en motos." decoding="async"></figure>
+  <figure class="album-image">
+    <button type="button" id="zoom-album" class="album-zoom-button" aria-label="Ampliar collage de Abel en pantalla completa">
+      <img src="assets/album-abel.webp" width="1122" height="1402" alt="Collage de cuatro fotografías de Abel en la montaña, con motivos de motos y carretera" decoding="async">
+      <span class="zoom-mark" aria-hidden="true">⤢</span>
+    </button>
+  </figure>
   <div class="album-actions">
    <button class="cta" type="button" id="again">¡Otra vez! <span aria-hidden="true">✦</span></button>
+   <a class="secondary album-download" href="assets/album-abel.webp" download="Album-Abel-Coras-Borda.webp">Guardar álbum ↓</a>
    <button class="secondary" type="button" id="share">Compartir ↗</button>
    <button class="secondary" type="button" id="return">Volver al inicio ↺</button>
   </div>
   <p class="credit">ABEL CORAS BORDA · 11 NOVIEMBRE 2026</p>
  </main>
 </div>
+<dialog id="album-modal" class="album-modal" aria-label="Collage de Abel ampliado">
+  <button type="button" class="album-modal-close" id="close-album" aria-label="Cerrar imagen ampliada">✕</button>
+  <div class="album-modal-inner">
+    <img src="assets/album-abel.webp" width="1122" height="1402" alt="Collage completo del álbum de cumpleaños de Abel">
+    <a class="secondary album-download" href="assets/album-abel.webp" download="Album-Abel-Coras-Borda.webp">Guardar álbum ↓</a>
+  </div>
+</dialog>
 <p class="toast" id="toast" role="status" hidden></p>
 <script type="module" src="js/app.js"></script>
 </body>
