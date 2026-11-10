@@ -13,11 +13,7 @@ const album=$('album');
 const {burst}=initConfetti($('burst'));
 initBirthday();
 
-const piano=initPiano({
-  button:$('piano-toggle'),
-  label:$('piano-label'),
-  status:$('piano-status')
-});
+const piano=initPiano({button:$('piano-toggle')});
 initCake({
   button:$('blow-candles'),
   scene:$('cake-scene'),

@@ -68,3 +68,57 @@
  .piano-float{backdrop-filter:none;box-shadow:0 7px 19px #0009}
  .wish-section{margin-top:32px;padding-bottom:28px}
 }
+
+
+/* Último detalle: humo breve sobre las tres velas cuando se apagan. */
+.cake-smoke{opacity:0;pointer-events:none}
+.smoke-wisp{fill:none;stroke:#e7dfd3;stroke-width:3;stroke-linecap:round;opacity:0}
+.cake-scene.candles-out .cake-smoke{opacity:1}
+.cake-scene.candles-out .smoke-wisp{
+  animation:smoke-rise 1.75s ease-out both;
+  transform-box:fill-box;transform-origin:50% 100%;
+}
+.cake-scene.candles-out .smoke-wisp--2{animation-delay:.10s}
+.cake-scene.candles-out .smoke-wisp--3{animation-delay:.18s}
+@keyframes smoke-rise{
+  0%{opacity:.78;transform:translateY(7px) scale(.83)}
+  35%{opacity:.51}
+  100%{opacity:0;transform:translateY(-20px) scale(1.18)}
+}
+/* Cierre tipo dedicatoria, sin tarjeta pesada ni botones extra. */
+.wish-result{max-width:475px;margin:20px auto 0;padding:17px 12px 8px;letter-spacing:0}
+.wish-result p{margin:0;color:#e3c8ab;font:500 clamp(14px,2.7vw,17px)/1.9 "DM Sans",system-ui,sans-serif}
+.wish-result strong{display:block;margin-top:14px;font-size:14px;color:#f4b672;letter-spacing:.015em}
+.wish-result:not([hidden]){animation:wish-appear .45s ease-out both}
+@keyframes wish-appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+/* Un único control de audio, visualmente liviano y con área táctil cómoda. */
+.piano-float.piano-mini{
+  left:max(12px,env(safe-area-inset-left));
+  bottom:max(12px,env(safe-area-inset-bottom));
+  width:49px;height:49px;min-width:49px;min-height:49px;max-width:none;
+  padding:0;gap:0;border-radius:50%;background:#1b2223f2;
+  border:1px solid #d9a36e9a;box-shadow:0 7px 18px #0007;
+  backdrop-filter:none;transition:background .18s,border-color .18s;
+}
+.piano-float.piano-mini .piano-float__icon{
+  width:43px;height:43px;background:none;color:#f2c18d;font-size:23px;
+}
+.piano-mini__bars{position:absolute;right:7px;bottom:7px;display:flex;align-items:end;gap:2px;height:11px;opacity:.35}
+.piano-mini__bars i{width:2px;height:5px;background:#ffbb72;border-radius:3px}
+.piano-mini__bars i:nth-child(2){height:9px}
+.piano-mini__bars i:nth-child(3){height:6px}
+.piano-float.piano-mini.is-playing .piano-mini__bars{opacity:1}
+.piano-float.piano-mini.is-playing .piano-float__icon{animation:none}
+.piano-float.piano-mini:hover{background:#313031}
+@media(max-width:600px){
+ .cake-glow{filter:none;background:radial-gradient(ellipse,#d58e5522,transparent 75%)}
+ .cake-svg{filter:none}
+ .wish-section{content-visibility:auto;contain-intrinsic-size:auto 570px}
+ .cake-spark{animation:none}
+ .piano-float.piano-mini{width:46px;height:46px;min-width:46px;min-height:46px}
+ .piano-float.piano-mini .piano-float__icon{width:41px;height:41px}
+}
+@media(prefers-reduced-motion:reduce){
+ .cake-scene.candles-out .smoke-wisp,.wish-result:not([hidden]){animation:none}
+ .cake-smoke,.smoke-wisp{opacity:0!important}
+}

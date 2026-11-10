@@ -10,7 +10,7 @@ La portada presenta una fotografía individual de Abel sentado en la roca y la f
 
 - `tarjeta-cumpleanos/index.html` — estructura y contenido de la página.
 - `tarjeta-cumpleanos/assets/album-abel.webp` — collage original optimizado para web.
-- `tarjeta-cumpleanos/assets/abel-portada.jpg` — fotografía individual y ligera para la portada.
+- `tarjeta-cumpleanos/assets/abel-portada.webp` — fotografía individual y ligera para la portada.
 - `tarjeta-cumpleanos/css/styles.css` — estilos de portada y álbum.
 - `tarjeta-cumpleanos/css/birthday.css` — estilos de fecha central.
 - `tarjeta-cumpleanos/js/app.js` — botones de abrir, compartir y regresar.
@@ -43,3 +43,11 @@ La transición al álbum utiliza un destello naranja discreto inspirado en una c
 - Se redujo el confeti de 130 a 40–65 partículas, la duración y la resolución de canvas, que solo se inicializa al necesitarse.
 - La propia torta es interactiva: permite encender o apagar las velas al tocarla o pulsar Enter/Espacio. Sigue existiendo el botón accesible de soplar.
 - Se simplificaron efectos costosos en móviles. El piano flotante se conserva.
+
+## Pulido final (10 de noviembre de 2026)
+
+- La portada usa una versión WebP 240×300 de la fotografía original, mejor calidad y menor peso.
+- En la torta se animan tres hilos de humo tras apagar las velas, respetando movimiento reducido.
+- Piano reducido a un control circular accesible; el icono indica el estado y no tapa las fotos.
+- Se eliminó la precarga del collage y se da prioridad a la foto de portada. Efectos costosos simplificados en pantallas móviles.
+- El mensaje reflexivo final aparece solo después de pedir un deseo, sin botones adicionales.

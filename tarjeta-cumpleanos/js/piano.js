@@ -21,6 +21,7 @@ export function initPiano({button, label, status}){
   function ui(){
     button?.setAttribute('aria-pressed',String(enabled));
     button?.setAttribute('aria-label',enabled?'Pausar música de piano':'Activar música de piano');
+    if(button)button.title=enabled?'Pausar piano':'Reproducir piano';
     if(label)label.textContent=enabled?'Piano de fondo':'Piano suave';
     if(status)status.textContent=enabled?'Ⅱ':'▶';
     button?.classList.toggle('is-playing',enabled);

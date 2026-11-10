@@ -176,3 +176,12 @@ body.album-open{overflow:hidden}
  .cover-portrait{box-shadow:0 7px 22px #0007}
 }
 @media(prefers-reduced-motion:reduce){.album.show{animation:none}}
+
+
+/* Render ligero: evita decorar repetidamente elementos fuera de pantalla. */
+@media(max-width:600px){
+ .album-image{box-shadow:0 8px 27px #0008;max-width:100%}
+ .album-image::before{display:none}
+ .album-zoom-button img{content-visibility:visible}
+ .layout::after{display:none}
+}
