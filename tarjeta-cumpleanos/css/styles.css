@@ -156,3 +156,23 @@ body.album-open{overflow:hidden}
 }
 @media(max-height:720px) and (max-width:600px){.cover-portrait{width:104px;margin:8px auto 9px}}
 @media(prefers-reduced-motion:reduce){.cover.is-exiting,.cover.is-exiting::after{animation:none!important}}
+
+/* Versión ligera: contenido sin barras de navegación ni botones redundantes. */
+.album{padding-bottom:42px}
+.album.show{animation:rise .22s ease-out both}
+.album-image{margin-bottom:5px}
+.album-hint{margin:6px auto 0;padding:0 6px;color:#c2aca0;font-size:12px;line-height:1.85;letter-spacing:.02em}
+.album-hint>span:nth-child(2){color:#8f9493}
+.modal-download{font-size:12px;color:#eac39c;text-decoration:none;border-bottom:1px solid #b88b5c;padding:8px 5px;min-height:38px}
+.modal-download:focus-visible{outline:2px solid #eaa15c;outline-offset:3px}
+#burst{contain:strict}
+@media(max-width:600px){
+ .album{padding-inline:13px;padding-bottom:30px}
+ .album-image{max-width:500px;margin-top:12px}
+ .album-head{padding-top:7px}
+ .album-hint{font-size:11px;margin:4px auto 0}
+ .album-zoom-button img{content-visibility:auto}
+ .layout::before{display:none}
+ .cover-portrait{box-shadow:0 7px 22px #0007}
+}
+@media(prefers-reduced-motion:reduce){.album.show{animation:none}}

@@ -49,18 +49,13 @@
       <span class="zoom-mark" aria-hidden="true">⤢</span>
     </button>
   </figure>
-  <div class="album-actions">
-   <button class="cta" type="button" id="again">¡Otra vez! <span aria-hidden="true">✦</span></button>
-   <a class="secondary album-download" href="assets/album-abel.webp" download="Album-Abel-Coras-Borda.webp">Guardar álbum ↓</a>
-   <button class="secondary" type="button" id="share">Compartir ↗</button>
-   <button class="secondary" type="button" id="return">Volver al inicio ↺</button>
-  </div>
+  <p class="album-hint">Toca la foto para ampliarla <span aria-hidden="true">↗</span><br><span>Desliza hacia abajo para pedir un deseo</span> <span aria-hidden="true">↓</span></p>
   <section class="wish-section" id="deseo" aria-labelledby="wish-title">
     <div class="wish-arc" aria-hidden="true"><span>✦</span></div>
     <p class="wish-kicker">UN NUEVO CAMINO COMIENZA</p>
     <h3 id="wish-title">Un deseo para Abel.</h3>
-    <p class="wish-instruction">Antes de continuar, pide un deseo.</p>
-    <div class="cake-scene" id="cake-scene">
+    <p class="wish-instruction" id="wish-instruction">Toca la torta o sopla las velas para pedir un deseo.</p>
+    <div class="cake-scene" id="cake-scene" role="button" tabindex="0" aria-pressed="false" aria-label="Soplar las velas de la torta">
       <span class="cake-glow" aria-hidden="true"></span>
       <svg class="cake-svg" viewBox="0 0 420 300" role="img" aria-labelledby="cake-svg-title">
         <title id="cake-svg-title">Torta de cumpleaños con tres velas encendidas</title>
@@ -120,8 +115,8 @@
 <dialog id="album-modal" class="album-modal" aria-label="Collage de Abel ampliado">
   <button type="button" class="album-modal-close" id="close-album" aria-label="Cerrar imagen ampliada">✕</button>
   <div class="album-modal-inner">
-    <img src="assets/album-abel.webp" width="1122" height="1402" alt="Collage completo del álbum de cumpleaños de Abel">
-    <a class="secondary album-download" href="assets/album-abel.webp" download="Album-Abel-Coras-Borda.webp">Guardar álbum ↓</a>
+    <img src="assets/album-abel.webp" width="1122" height="1402" loading="lazy" decoding="async" alt="Collage completo del álbum de cumpleaños de Abel">
+    <a class="modal-download" href="assets/album-abel.webp" download="Album-Abel-Coras-Borda.webp">Descargar imagen <span aria-hidden="true">↓</span></a>
   </div>
 </dialog>
 <button class="piano-float" id="piano-toggle" type="button" aria-pressed="false" aria-label="Activar piano de fondo" hidden>

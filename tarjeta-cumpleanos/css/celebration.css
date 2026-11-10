@@ -57,3 +57,14 @@
  .candle-flame,.cake-spark,.piano-float.is-playing .piano-float__icon{animation:none}
  .cake-flames{transition:none}
 }
+
+/* La torta también responde al toque directo: un botón extra no es obligatorio. */
+.cake-scene[role="button"]{cursor:pointer;touch-action:manipulation;outline-offset:0;border-radius:20px}
+.cake-scene[role="button"]:focus-visible{outline:3px solid #e8b47d;outline-offset:-5px}
+.cake-scene[role="button"]:active{transform:scale(.992)}
+@media(max-width:600px){
+ .cake-glow{filter:blur(18px)}
+ .cake-svg{filter:drop-shadow(0 9px 13px #0008)}
+ .piano-float{backdrop-filter:none;box-shadow:0 7px 19px #0009}
+ .wish-section{margin-top:32px;padding-bottom:28px}
+}

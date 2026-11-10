@@ -35,3 +35,11 @@ La transición al álbum utiliza un destello naranja discreto inspirado en una c
 - La música se intenta iniciar tras pulsar «Abrir álbum», un gesto del visitante. Algunos navegadores impiden el audio automático: en ese caso, se puede usar el botón flotante «Piano suave».
 - La torta aparece **después del collage**, sin alterar la portada. Al pulsar «Soplar las velas» se apagan, se muestra un deseo breve y hay confeti. Se pueden volver a encender.
 - No se accede al micrófono ni se recopilan datos. El botón simula el soplido, para que funcione en celulares.
+
+## Ajuste de rapidez y limpieza (10/11/2026)
+
+- Se retiraron de la vista principal los botones de compartir, volver al inicio, repetir confeti y descargar. El álbum se descarga únicamente al ampliarlo, si se desea.
+- El botón de abrir responde inmediatamente; se eliminó la espera artificial de 390 ms y el repintado forzado.
+- Se redujo el confeti de 130 a 40–65 partículas, la duración y la resolución de canvas, que solo se inicializa al necesitarse.
+- La propia torta es interactiva: permite encender o apagar las velas al tocarla o pulsar Enter/Espacio. Sigue existiendo el botón accesible de soplar.
+- Se simplificaron efectos costosos en móviles. El piano flotante se conserva.
