@@ -1,0 +1,51 @@
+:root{color-scheme:dark;--black:#0c0f11;--ash:#24272a;--smoke:#9ba1a4;--orange:#fa9a3f;--paper:#f5f2e8}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100svh;overflow-x:hidden;background:#0c0f11;color:var(--paper);font:400 15px/1.6 "DM Sans",sans-serif}
+[hidden]{display:none!important}
+button{font:inherit;cursor:pointer;touch-action:manipulation}
+button:focus-visible,a:focus-visible{outline:3px solid var(--orange);outline-offset:4px}
+img{display:block;max-width:100%}
+a{color:inherit}
+#burst{position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:30}
+.layout{min-height:100svh;position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse 75% 55% at 50% 25%,#383b3f70,transparent 75%),radial-gradient(ellipse 70% 85% at 100% 100%,#38201170,transparent 75%),#0c0f11}
+.layout::before{content:"";position:absolute;inset:0;z-index:0;opacity:.13;pointer-events:none;background:repeating-linear-gradient(122deg,transparent 0 42px,#adb0ad 43px,#adb0ad 44px,transparent 45px 88px);mask-image:linear-gradient(90deg,#000,transparent 35%,transparent 65%,#000)}
+.layout::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.14;background:radial-gradient(circle at 27% 17%,#ffad60,transparent 4%),radial-gradient(circle at 85% 85%,#ffae61,transparent 6%)}
+.topbar{position:relative;z-index:2;max-width:1120px;margin:auto;padding:23px clamp(18px,5vw,50px);display:flex;justify-content:space-between;align-items:center;gap:14px}
+.brand{display:flex;align-items:center;gap:12px;font-size:11px;letter-spacing:.19em;font-weight:800;text-transform:uppercase;color:#e9e2d6}
+.brand-mark{display:grid;place-items:center;width:34px;height:34px;background:var(--orange);color:#1b1c1b;border-radius:50% 50% 40% 40%;font-size:18px;box-shadow:0 0 22px #ff9d4b4d}
+.topbar .edition{font-size:10px;color:#d79f67;font-weight:800;letter-spacing:.19em;text-transform:uppercase;text-align:right}
+.cover{min-height:calc(100svh - 83px);position:relative;z-index:1;display:grid;place-items:center;padding:30px 20px 65px;text-align:center}
+.cover-inner{width:min(100%,930px)}
+.cover-eyebrow{color:#eba45a;letter-spacing:.3em;text-transform:uppercase;font-size:10px;font-weight:800;margin:0 0 7px}
+.cover h1{font:900 clamp(79px,16vw,180px)/.79 "Barlow Condensed",Impact,sans-serif;letter-spacing:-.04em;color:#f4f1eb;margin:15px auto 0}
+.cover h1 span{display:block;background:linear-gradient(110deg,#f1f0e9,#d6ddd9);background-clip:text;-webkit-background-clip:text;color:transparent}
+.cover h1 .surname{font-size:clamp(30px,6.2vw,69px);line-height:1.1;letter-spacing:.025em;margin-top:17px;color:#e1a364;background:none}
+.rule{width:76px;height:3px;border-radius:30px;margin:20px auto 20px;background:linear-gradient(90deg,#ce7943,#ffb567)}
+.cover-sub{font-size:11px;color:#aba9a6;letter-spacing:.26em;text-transform:uppercase;font-weight:800}
+.thumb-frame{position:relative;max-width:255px;margin:23px auto 23px;filter:drop-shadow(0 15px 26px #000a);transform:rotate(-5deg);transition:transform .4s}
+.thumb-frame::before{content:"";position:absolute;z-index:-1;inset:-10px;border:1px solid #ff9d51a6;transform:rotate(8deg)}
+.thumb-frame img{border:5px solid #e9e1d0;width:100%;aspect-ratio:4/5;object-fit:cover;filter:saturate(.78) brightness(.75)}
+.cover:hover .thumb-frame{transform:rotate(-2deg) translateY(-2px)}
+.cta{border:0;border-radius:100px;padding:15px 28px;min-height:54px;display:inline-flex;align-items:center;gap:14px;justify-content:center;background:linear-gradient(112deg,#ffb875,#ed8c3d);color:#101313;font-weight:900;box-shadow:0 12px 35px #0009,0 0 32px #fa983c36;transition:transform .2s,filter .2s}
+.cta:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.cta:active{transform:translateY(1px)}
+.cta span{font-size:19px}
+.cover-foot{margin-top:18px;font-size:10px;color:#7b8282;letter-spacing:.14em}
+.album{position:relative;z-index:2;min-height:100svh;padding:5px 18px 68px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.album-head{padding:11px 5px 10px}
+.album-head .overline{display:block;color:#e79e58;font-size:10px;font-weight:800;letter-spacing:.29em;text-transform:uppercase}
+.album-head h2{font:800 clamp(37px,8vw,70px)/1 "Barlow Condensed",Impact,sans-serif;text-transform:uppercase;letter-spacing:.02em;margin:7px 0 0}
+.album-head h2 span{color:#f7a052}
+.album-image{position:relative;isolation:isolate;width:min(100%,550px);margin:25px auto 13px;border:1px solid #e6984c8a;padding:6px;background:#202325;box-shadow:0 26px 80px #000c,0 0 70px #fa883316}
+.album-image::before{content:"";position:absolute;inset:-16px;z-index:-1;background:linear-gradient(125deg,#d1824d55,#6c6c6c33,#ca7b3b44);filter:blur(26px)}
+.album-image img{display:block;width:100%;height:auto;aspect-ratio:561/701;object-fit:contain}
+.album-actions{display:flex;gap:11px;justify-content:center;align-items:center;flex-wrap:wrap;margin:22px auto 0}
+.secondary{border:1px solid #f7a75b65;background:#252627;color:#e8ded1;border-radius:100px;padding:12px 19px;min-height:44px;font-size:12px;font-weight:800;transition:background .2s}
+.secondary:hover{background:#3a3530}
+.credit{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#848787;margin:24px auto 0}
+.toast{position:fixed;z-index:70;bottom:max(20px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);font-size:12px;font-weight:900;color:#1c1c1b;background:#ffb471;border-radius:100px;padding:11px 20px;white-space:nowrap;box-shadow:0 12px 40px #0008}
+.album.show{animation:rise .55s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(20px) scale(.98)}to{opacity:1;transform:none}}
+@media(max-width:450px){.topbar{padding:18px 17px}.brand{font-size:10px;letter-spacing:.12em}.topbar .edition{font-size:9px}.cover{padding:10px 17px 54px}.cover h1{font-size:clamp(74px,23vw,112px)}.cover h1 .surname{font-size:clamp(27px,9vw,45px)}.thumb-frame{max-width:195px;margin-top:20px;margin-bottom:23px}.album-head h2{font-size:clamp(38px,12vw,58px)}.album-image{margin-top:18px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.album.show,.thumb-frame,.cta{animation:none;transition:none}}
