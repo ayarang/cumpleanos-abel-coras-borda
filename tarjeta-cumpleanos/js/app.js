@@ -4,6 +4,8 @@
  */
 import {initConfetti} from './confetti.js';
 import {initBirthday} from './birthday.js';
+import {initPiano} from './piano.js';
+import {initCake} from './cake.js';
 
 const $=id=>document.getElementById(id);
 const cover=$('cover');
@@ -11,12 +13,28 @@ const album=$('album');
 const {burst}=initConfetti($('burst'));
 initBirthday();
 
+const piano=initPiano({
+  button:$('piano-toggle'),
+  label:$('piano-label'),
+  status:$('piano-status')
+});
+initCake({
+  button:$('blow-candles'),
+  scene:$('cake-scene'),
+  result:$('wish-result'),
+  onWish:()=>burst()
+});
+
 let noticeTimer=0;
 const motionReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 let opening=false;
 function showAlbum(){
   if(opening)return;
   opening=true;
+  // El toque para abrir el álbum también intenta iniciar el piano con sonido.
+  // Si el navegador lo bloquea, queda disponible el botón flotante.
+  $('piano-toggle').hidden=false;
+  void piano.start();
   cover.classList.add('is-exiting');
   window.setTimeout(()=>{
     cover.hidden=true;

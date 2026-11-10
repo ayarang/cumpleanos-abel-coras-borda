@@ -26,3 +26,12 @@ Antes del 11 de noviembre se muestra el tiempo restante. Durante el 11 de noviem
 Todo es HTML, CSS y JavaScript estático, alojado en GitHub Pages.
 
 La transición al álbum utiliza un destello naranja discreto inspirado en una curva de carretera, y respeta `prefers-reduced-motion`. En teléfonos, la portada y los controles se ajustan al ancho y alto disponibles.
+
+## Música y torta interactiva
+
+- `tarjeta-cumpleanos/js/piano.js`: melodía instrumental **original sintetizada** con Web Audio; suena suave y no requiere descargar música ni usar pistas comerciales.
+- `tarjeta-cumpleanos/js/cake.js`: controla las velas con un botón, las apaga y permite volverlas a encender.
+- `tarjeta-cumpleanos/css/celebration.css`: estilos de torta SVG, llamas, destellos y reproductor flotante.
+- La música se intenta iniciar tras pulsar «Abrir álbum», un gesto del visitante. Algunos navegadores impiden el audio automático: en ese caso, se puede usar el botón flotante «Piano suave».
+- La torta aparece **después del collage**, sin alterar la portada. Al pulsar «Soplar las velas» se apagan, se muestra un deseo breve y hay confeti. Se pueden volver a encender.
+- No se accede al micrófono ni se recopilan datos. El botón simula el soplido, para que funcione en celulares.

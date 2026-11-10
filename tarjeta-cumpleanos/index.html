@@ -16,6 +16,7 @@
 <link rel="preload" href="assets/album-abel.webp" as="image" type="image/webp">
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/birthday.css">
+<link rel="stylesheet" href="css/celebration.css">
 </head>
 <body>
 <canvas id="burst" aria-hidden="true"></canvas>
@@ -54,6 +55,65 @@
    <button class="secondary" type="button" id="share">Compartir ↗</button>
    <button class="secondary" type="button" id="return">Volver al inicio ↺</button>
   </div>
+  <section class="wish-section" id="deseo" aria-labelledby="wish-title">
+    <div class="wish-arc" aria-hidden="true"><span>✦</span></div>
+    <p class="wish-kicker">UN NUEVO CAMINO COMIENZA</p>
+    <h3 id="wish-title">Un deseo para Abel.</h3>
+    <p class="wish-instruction">Antes de continuar, pide un deseo.</p>
+    <div class="cake-scene" id="cake-scene">
+      <span class="cake-glow" aria-hidden="true"></span>
+      <svg class="cake-svg" viewBox="0 0 420 300" role="img" aria-labelledby="cake-svg-title">
+        <title id="cake-svg-title">Torta de cumpleaños con tres velas encendidas</title>
+        <defs>
+          <linearGradient id="cake-side" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#6f4942"/>
+            <stop offset="0.52" stop-color="#4b2b2c"/>
+            <stop offset="1" stop-color="#34252a"/>
+          </linearGradient>
+          <linearGradient id="cake-icing" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ffedc8"/>
+            <stop offset="1" stop-color="#d3a56f"/>
+          </linearGradient>
+          <radialGradient id="flame-gold" cx=".5" cy=".75" r=".7">
+            <stop offset="0" stop-color="#fffde0"/>
+            <stop offset=".5" stop-color="#ffd171"/>
+            <stop offset="1" stop-color="#f38940"/>
+          </radialGradient>
+        </defs>
+        <ellipse cx="210" cy="265" rx="164" ry="18" fill="#090b0d" opacity=".6"/>
+        <path d="M64 149v84c0 22 66 43 146 43s146-21 146-43v-84z" fill="url(#cake-side)" stroke="#b78455" stroke-width="2"/>
+        <ellipse cx="210" cy="151" rx="146" ry="42" fill="#d29a5b"/>
+        <ellipse cx="210" cy="142" rx="142" ry="39" fill="url(#cake-icing)"/>
+        <path d="M70 155q21 55 46 9t51 7t45-5t50 2t50-6t36-7" fill="none" stroke="#efdcba" stroke-width="18" stroke-linecap="round"/>
+        <g fill="#dca76c">
+          <ellipse cx="119" cy="230" rx="7" ry="3"/><ellipse cx="177" cy="246" rx="7" ry="3"/>
+          <ellipse cx="247" cy="246" rx="7" ry="3"/><ellipse cx="309" cy="228" rx="7" ry="3"/>
+        </g>
+        <g stroke-width="11" stroke-linecap="round">
+          <path d="M162 121V86" stroke="#d1a869"/>
+          <path d="M210 109V67" stroke="#8eb3ab"/>
+          <path d="M258 121V86" stroke="#d1a869"/>
+        </g>
+        <g stroke="#fff7e5" stroke-width="3" stroke-linecap="round">
+          <path d="M162 121V86"/><path d="M210 109V67"/><path d="M258 121V86"/>
+        </g>
+        <g class="cake-flames" id="cake-flames">
+          <path class="candle-flame" style="--delay:-.25s" d="M162 68c-16 18-10 28 0 30c12-4 15-13 0-30z" fill="url(#flame-gold)"/>
+          <path class="candle-flame" style="--delay:-.75s" d="M210 43c-17 17-11 28 0 30c12-4 15-13 0-30z" fill="url(#flame-gold)"/>
+          <path class="candle-flame" style="--delay:-1.35s" d="M258 68c-16 18-10 28 0 30c12-4 15-13 0-30z" fill="url(#flame-gold)"/>
+        </g>
+        <text x="210" y="208" text-anchor="middle" font-family="Barlow Condensed,Impact,sans-serif" font-size="27" font-weight="800" letter-spacing="3" fill="#ffe4b7">ABEL</text>
+        <text x="210" y="232" text-anchor="middle" font-family="DM Sans,Arial,sans-serif" font-size="10" font-weight="700" letter-spacing="4" fill="#d7b08b">11 · 11 · 2026</text>
+      </svg>
+      <span class="cake-spark cake-spark--one" aria-hidden="true">✦</span>
+      <span class="cake-spark cake-spark--two" aria-hidden="true">✧</span>
+      <span class="cake-spark cake-spark--three" aria-hidden="true">✦</span>
+    </div>
+    <button class="cta wish-button" type="button" id="blow-candles">
+      <span id="blow-label">Soplar las velas</span><span aria-hidden="true">✦</span>
+    </button>
+    <p id="wish-result" class="wish-result" role="status" aria-live="polite" hidden>Que nunca falten nuevos caminos por recorrer.</p>
+  </section>
   <p class="credit">ABEL CORAS BORDA · 11 NOVIEMBRE 2026</p>
  </main>
 </div>
@@ -64,6 +124,11 @@
     <a class="secondary album-download" href="assets/album-abel.webp" download="Album-Abel-Coras-Borda.webp">Guardar álbum ↓</a>
   </div>
 </dialog>
+<button class="piano-float" id="piano-toggle" type="button" aria-pressed="false" aria-label="Activar piano de fondo" hidden>
+  <span class="piano-float__icon" aria-hidden="true">♫</span>
+  <span class="piano-float__text" id="piano-label">Piano suave</span>
+  <span class="piano-float__status" id="piano-status" aria-hidden="true">▶</span>
+</button>
 <p class="toast" id="toast" role="status" hidden></p>
 <script type="module" src="js/app.js"></script>
 </body>

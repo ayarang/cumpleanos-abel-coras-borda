@@ -1,0 +1,59 @@
+/* Sección final: torta y un deseo, sin cargar visualmente la portada. */
+.wish-section{
+  position:relative;isolation:isolate;
+  width:min(100%,690px);margin:55px auto 12px;padding:32px 18px 38px;
+  border-top:1px solid rgba(238,172,95,.28);
+  border-radius:24px;
+  text-align:center;
+  background:radial-gradient(ellipse at 50% 44%,rgba(218,129,56,.11),transparent 62%);
+}
+.wish-arc{height:28px;display:flex;align-items:center;justify-content:center;color:#dba25e;margin:0 auto 5px}
+.wish-arc::before,.wish-arc::after{content:'';width:60px;height:1px;background:linear-gradient(90deg,transparent,#9d6f47)}
+.wish-arc::after{transform:rotate(180deg)}
+.wish-arc span{font-size:16px;padding:0 14px}
+.wish-kicker{font-size:10px;letter-spacing:.23em;color:#e4a25c;font-weight:800;margin:4px auto 8px}
+.wish-section h3{font:800 clamp(36px,7.5vw,58px)/1.02 "Barlow Condensed",Impact,sans-serif;color:#f6f0e8;letter-spacing:.015em;margin:0}
+.wish-instruction{font-size:13px;color:#b3aaa1;margin:8px 0 4px}
+.cake-scene{position:relative;width:min(100%,420px);margin:0 auto}
+.cake-glow{position:absolute;inset:18% 20% 15%;background:#d58e5544;border-radius:50%;filter:blur(36px);pointer-events:none}
+.cake-svg{position:relative;display:block;width:100%;height:auto;filter:drop-shadow(0 19px 22px #0009)}
+.cake-flames{filter:drop-shadow(0 0 8px #f8ab60aa);transition:opacity .35s ease}
+.candle-flame{animation:candle-flicker 1.5s ease-in-out infinite alternate;animation-delay:var(--delay);transform-box:fill-box;transform-origin:50% 100%}
+.cake-scene.candles-out .cake-flames{opacity:0}
+.cake-spark{position:absolute;color:#edb46c;font-size:22px;opacity:.62;animation:star-breathe 3.5s ease-in-out infinite}
+.cake-spark--one{top:20%;left:4%}.cake-spark--two{top:29%;right:6%;animation-delay:-.8s}
+.cake-spark--three{bottom:22%;right:1%;font-size:14px;animation-delay:-1.7s}
+.cake-scene.candles-out .cake-spark{opacity:.3}
+.wish-button{min-height:51px;margin:0 auto}
+.wish-result{color:#f0c88e;font-size:clamp(13px,2.7vw,15px);font-weight:700;line-height:1.65;margin:18px auto 0;max-width:420px}
+@keyframes candle-flicker{0%{transform:rotate(-6deg) scaleY(.91)}100%{transform:rotate(6deg) scaleY(1.06)}}
+@keyframes star-breathe{50%{opacity:.2;transform:scale(.78)}}
+/* Reproductor de piano, flotando lejos de los controles principales. */
+.piano-float{
+ position:fixed;z-index:45;left:max(14px,env(safe-area-inset-left));
+ bottom:max(15px,env(safe-area-inset-bottom));
+ display:inline-flex;align-items:center;gap:10px;justify-content:center;
+ max-width:calc(100vw - 28px);min-height:48px;padding:8px 16px 8px 9px;
+ border:1px solid rgba(232,176,104,.62);border-radius:100px;
+ background:rgba(20,24,26,.93);color:#f6e5cd;
+ box-shadow:0 12px 35px #0009;backdrop-filter:blur(14px);
+ font-size:12px;font-weight:800;letter-spacing:.015em;
+ transition:background .22s,border-color .22s;
+}
+.piano-float__icon{display:grid;place-items:center;flex:none;width:31px;height:31px;border-radius:50%;background:linear-gradient(130deg,#ebad6a,#b97840);color:#161618;font-size:18px}
+.piano-float__status{color:#e8ac6a;font-size:14px}
+.piano-float.is-playing{border-color:#f0c18a;background:rgba(37,31,26,.95)}
+.piano-float.is-playing .piano-float__icon{animation:piano-pulse 2.1s ease-in-out infinite}
+.piano-float:hover{background:rgba(49,44,38,.98)}
+@keyframes piano-pulse{50%{box-shadow:0 0 0 5px #eeb27024}}
+@media(max-width:430px){
+ .wish-section{padding:22px 9px 35px;margin-top:42px}
+ .wish-section h3{font-size:42px}
+ .wish-instruction{font-size:12px}
+ .piano-float{min-height:44px;padding:7px 12px 7px 7px;gap:8px;font-size:11px}
+ .piano-float__icon{width:29px;height:29px}
+}
+@media(prefers-reduced-motion:reduce){
+ .candle-flame,.cake-spark,.piano-float.is-playing .piano-float__icon{animation:none}
+ .cake-flames{transition:none}
+}
