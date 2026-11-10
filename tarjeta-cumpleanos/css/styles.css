@@ -185,3 +185,44 @@ body.album-open{overflow:hidden}
  .album-zoom-button img{content-visibility:visible}
  .layout::after{display:none}
 }
+
+
+/* El 11:11 no es un contador: revela un detalle pequeño al tocarlo. */
+.secret-date-wrap{display:flex;flex-direction:column;align-items:center;gap:5px;margin:-1px auto 11px}
+.secret-time{
+ display:inline-flex;align-items:center;justify-content:center;gap:7px;
+ padding:5px 13px;border:1px solid #edb16e4d;border-radius:999px;
+ background:#181c1eaa;color:#dfb588;font-size:10px;
+ letter-spacing:.15em;font-weight:800;min-height:35px;
+ transition:background .16s,border-color .16s
+}
+.secret-time span{color:#eaa65f}
+.secret-time:hover,.secret-time[aria-expanded="true"]{background:#292521;border-color:#d8a06d}
+.secret-phrase{max-width:330px;margin:0 auto 4px;text-align:center;color:#e0c8a7;font-size:11px;line-height:1.6}
+.secret-phrase:not([hidden]){animation:secret-appear .20s ease-out both}
+@keyframes secret-appear{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+/* Carretera minimalista: se traza una vez al abrir, sin esperar al efecto. */
+.road-trace{height:48px;margin:0 auto 2px;max-width:500px;text-align:center;pointer-events:none;overflow:hidden}
+.road-trace svg{display:block;width:min(100%,500px);height:32px;margin:0 auto}
+.road-trace path{stroke:#ec9852;fill:none;stroke-width:2;stroke-linecap:round;stroke-dasharray:780;stroke-dashoffset:0;opacity:.75}
+.album.is-revealed .road-trace path{animation:trace-road .82s cubic-bezier(.22,.7,.18,1) both}
+.road-trace span{position:relative;top:-6px;display:block;font-size:9px;letter-spacing:.27em;color:#ad8867;font-weight:800}
+@keyframes trace-road{0%{stroke-dashoffset:780;opacity:.1}80%{stroke-dashoffset:0;opacity:.9}100%{stroke-dashoffset:0;opacity:.7}}
+/* Profundidad ligera solo al pasar el ratón, sin trabajo continuo en Android. */
+.album-zoom-button{overflow:hidden;isolation:isolate}
+.album-zoom-button img{transition:transform .27s ease-out;transform:scale(1)}
+@media(hover:hover) and (pointer:fine){
+ .album-zoom-button:hover img{transform:scale(1.016)}
+ .album-zoom-button:hover .zoom-mark{background:#38231cf0}
+}
+.album-modal[open] .album-modal-inner img{animation:album-photo-reveal .18s ease-out both}
+@keyframes album-photo-reveal{from{opacity:.83;transform:scale(.985)}to{opacity:1;transform:scale(1)}}
+@media(max-width:420px){
+ .secret-date-wrap{margin-bottom:7px}
+ .road-trace{height:43px}
+ .road-trace svg{height:29px}
+}
+@media(prefers-reduced-motion:reduce){
+ .secret-phrase:not([hidden]),.album.is-revealed .road-trace path,.album-modal[open] .album-modal-inner img{animation:none}
+ .album-zoom-button img{transition:none}
+}

@@ -29,6 +29,10 @@
   <div class="cover-inner">
    <p class="cover-eyebrow">Un día para recordar</p>
    <time class="birthday-date" datetime="2026-11-11"><span>MIÉRCOLES</span><strong>11</strong><span>NOVIEMBRE<br>2026</span></time>
+   <div class="secret-date-wrap">
+     <button class="secret-time" id="secret-1111" type="button" aria-expanded="false" aria-controls="secret-phrase" aria-label="Descubrir detalle secreto del 11:11">11:11 <span aria-hidden="true">✦</span></button>
+     <p class="secret-phrase" id="secret-phrase" hidden>Que nunca te falten caminos por descubrir.</p>
+   </div>
    <h1 id="cover-name"><span>ABEL</span><span class="surname">CORAS BORDA</span></h1>
    <div class="rule"></div>
    <figure class="cover-portrait">
@@ -36,16 +40,21 @@
    </figure>
    <p class="cover-reflection">Hay personas que avanzan en silencio, pero dejan huella en cada camino.<br><span>Que este nuevo año te traiga claridad, fuerza y buenos momentos.</span></p>
    <p class="cover-wish">Feliz cumpleaños, Abel.</p>
-   <p class="birthday-countdown" id="birthday-countdown" aria-live="off"></p>
    <button class="cta" id="open-album" type="button">Abrir álbum <span aria-hidden="true">↗</span></button>
    <p class="cover-foot">11 · 11 · 2026</p>
   </div>
  </section>
  <main class="album" id="album" hidden aria-labelledby="album-title">
+  <div class="road-trace" aria-hidden="true">
+    <svg viewBox="0 0 520 58" preserveAspectRatio="xMidYMid meet" focusable="false">
+      <path d="M7 44 C80 5 149 56 228 23 S373 4 513 39"/>
+    </svg>
+    <span>LA RUTA CONTINÚA</span>
+  </div>
   <div class="album-head"><span class="overline">11 DE NOVIEMBRE DE 2026 · EDICIÓN ESPECIAL</span><h2 id="album-title" tabindex="-1">Feliz cumpleaños, <span>Abel.</span></h2></div>
   <figure class="album-image">
     <button type="button" id="zoom-album" class="album-zoom-button" aria-label="Ampliar collage de Abel en pantalla completa">
-      <img src="assets/album-abel.webp" width="1122" height="1402" alt="Collage de cuatro fotografías de Abel en la montaña, con motivos de motos y carretera" decoding="async">
+      <img src="assets/album-abel.webp" width="1122" height="1402" alt="Collage de cuatro fotografías de Abel en la montaña, con motivos de motos y carretera" decoding="async" loading="lazy">
       <span class="zoom-mark" aria-hidden="true">⤢</span>
     </button>
   </figure>

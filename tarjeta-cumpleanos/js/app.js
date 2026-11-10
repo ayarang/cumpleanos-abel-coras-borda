@@ -3,7 +3,6 @@
  * Fecha, efectos y estilos están separados en módulos.
  */
 import {initConfetti} from './confetti.js';
-import {initBirthday} from './birthday.js';
 import {initPiano} from './piano.js';
 import {initCake} from './cake.js';
 
@@ -11,7 +10,6 @@ const $=id=>document.getElementById(id);
 const cover=$('cover');
 const album=$('album');
 const {burst}=initConfetti($('burst'));
-initBirthday();
 
 const piano=initPiano({button:$('piano-toggle')});
 initCake({
@@ -31,6 +29,7 @@ function showAlbum(){
   opened=true;
   cover.hidden=true;
   album.hidden=false;
+  album.classList.add('is-revealed');
   window.scrollTo(0,0);
   $('piano-toggle').hidden=false;
   $('album-title').focus({preventScroll:true});
@@ -40,6 +39,14 @@ function showAlbum(){
   requestAnimationFrame(()=>burst());
 }
 $('open-album').addEventListener('click',showAlbum);
+
+// El detalle 11:11 es discreto: no crea otra sección.
+const secretButton=$('secret-1111'),secretPhrase=$('secret-phrase');
+secretButton?.addEventListener('click',()=>{
+  const expanded=secretButton.getAttribute('aria-expanded')==='true';
+  secretButton.setAttribute('aria-expanded',String(!expanded));
+  if(secretPhrase)secretPhrase.hidden=expanded;
+});
 const imageModal=$('album-modal'),zoomButton=$('zoom-album'),closeModalButton=$('close-album');
 zoomButton.addEventListener('click',()=>{
   if(typeof imageModal.showModal!=='function'){

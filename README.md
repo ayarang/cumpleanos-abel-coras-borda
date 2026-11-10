@@ -1,53 +1,30 @@
 # Álbum de cumpleaños — Abel Coras Borda 🏍️
 
-**Fecha central:** miércoles 11 de noviembre de 2026 (hora de Perú).
+**Fecha:** miércoles 11 de noviembre de 2026.
 
-**Álbum en línea:** https://ayarang.github.io/simulador-de-jugos/tarjeta-cumpleanos/
+**Página publicada:** https://ayarang.github.io/simulador-de-jugos/tarjeta-cumpleanos/
 
-La portada presenta una fotografía individual de Abel sentado en la roca y la frase reflexiva elegida. La vista interior conserva el collage original de cuatro fotografías, con estética de motos, casco y carretera, **sin comentarios individuales**. Al pulsar el collage se abre un visor de pantalla completa; permite descargar la imagen y cerrarla con Escape.
+Álbum con portada sobria, una fotografía individual, collage original ampliable, una melodía original de piano y una torta con velas interactivas. Las fotografías y el simulador de jugos original (`index.htm`) se conservan.
 
 ## Estructura modular
 
-- `tarjeta-cumpleanos/index.html` — estructura y contenido de la página.
-- `tarjeta-cumpleanos/assets/album-abel.webp` — collage original optimizado para web.
-- `tarjeta-cumpleanos/assets/abel-portada.webp` — fotografía individual y ligera para la portada.
-- `tarjeta-cumpleanos/css/styles.css` — estilos de portada y álbum.
-- `tarjeta-cumpleanos/css/birthday.css` — estilos de fecha central.
-- `tarjeta-cumpleanos/js/app.js` — botones de abrir, compartir y regresar.
-- `tarjeta-cumpleanos/js/confetti.js` — confeti independiente y accesible.
-- `tarjeta-cumpleanos/js/birthday.js` — fecha y aviso del cumpleaños según hora de Lima.
+- `tarjeta-cumpleanos/index.html`: portada, álbum y el detalle 11:11.
+- `tarjeta-cumpleanos/assets/abel-portada.webp`: foto individual pequeña y optimizada.
+- `tarjeta-cumpleanos/assets/album-abel.webp`: collage original, ampliable y descargable.
+- `tarjeta-cumpleanos/css/styles.css`: diseño y efectos discretos de carretera y galería.
+- `tarjeta-cumpleanos/css/birthday.css`: estilos de la fecha fija.
+- `tarjeta-cumpleanos/css/celebration.css`: torta, velas, humo, piano flotante y dedicatoria final.
+- `tarjeta-cumpleanos/js/app.js`: navegación, botón 11:11 y visor de fotos.
+- `tarjeta-cumpleanos/js/confetti.js`: confeti ligero.
+- `tarjeta-cumpleanos/js/cake.js`: soplar velas y mensaje final.
+- `tarjeta-cumpleanos/js/piano.js`: *Un camino por delante*, composición instrumental original mediante Web Audio.
 
-La antigua prueba de tarjeta (`tarjeta-original.html`) se eliminó. El proyecto inicial de simulación de jugos permanece en `index.htm`, sin modificaciones.
+## Experiencia
 
-## Fecha
+La fecha del 11 de noviembre de 2026 es estática. No hay cronómetro ni cuenta regresiva. Al pulsar `11:11 ✦`, se revela la frase «Que nunca te falten caminos por descubrir». Al tocar «Abrir álbum» aparece una animación rápida de una carretera y se intenta iniciar el piano. Algunos navegadores requieren activarlo manualmente con el botón flotante.
 
-Antes del 11 de noviembre se muestra el tiempo restante. Durante el 11 de noviembre, la portada destaca que **hoy es el gran día**. Después, conserva la fecha del recuerdo. No requiere editar el sitio ni configurar tareas.
+Se mantiene el collage original, con una ligera profundidad al pasar el cursor en computadoras. Al tocarlo, se abre el visor; dentro se puede descargar la imagen. La torta se puede tocar para apagar o volver a encender las velas. El resultado respeta el ajuste de movimiento reducido y no utiliza el micrófono ni pistas musicales de terceros.
 
-Todo es HTML, CSS y JavaScript estático, alojado en GitHub Pages.
+## Nombre del repositorio
 
-La transición al álbum utiliza un destello naranja discreto inspirado en una curva de carretera, y respeta `prefers-reduced-motion`. En teléfonos, la portada y los controles se ajustan al ancho y alto disponibles.
-
-## Música y torta interactiva
-
-- `tarjeta-cumpleanos/js/piano.js`: melodía instrumental **original sintetizada** con Web Audio; suena suave y no requiere descargar música ni usar pistas comerciales.
-- `tarjeta-cumpleanos/js/cake.js`: controla las velas con un botón, las apaga y permite volverlas a encender.
-- `tarjeta-cumpleanos/css/celebration.css`: estilos de torta SVG, llamas, destellos y reproductor flotante.
-- La música se intenta iniciar tras pulsar «Abrir álbum», un gesto del visitante. Algunos navegadores impiden el audio automático: en ese caso, se puede usar el botón flotante «Piano suave».
-- La torta aparece **después del collage**, sin alterar la portada. Al pulsar «Soplar las velas» se apagan, se muestra un deseo breve y hay confeti. Se pueden volver a encender.
-- No se accede al micrófono ni se recopilan datos. El botón simula el soplido, para que funcione en celulares.
-
-## Ajuste de rapidez y limpieza (10/11/2026)
-
-- Se retiraron de la vista principal los botones de compartir, volver al inicio, repetir confeti y descargar. El álbum se descarga únicamente al ampliarlo, si se desea.
-- El botón de abrir responde inmediatamente; se eliminó la espera artificial de 390 ms y el repintado forzado.
-- Se redujo el confeti de 130 a 40–65 partículas, la duración y la resolución de canvas, que solo se inicializa al necesitarse.
-- La propia torta es interactiva: permite encender o apagar las velas al tocarla o pulsar Enter/Espacio. Sigue existiendo el botón accesible de soplar.
-- Se simplificaron efectos costosos en móviles. El piano flotante se conserva.
-
-## Pulido final (10 de noviembre de 2026)
-
-- La portada usa una versión WebP 240×300 de la fotografía original, mejor calidad y menor peso.
-- En la torta se animan tres hilos de humo tras apagar las velas, respetando movimiento reducido.
-- Piano reducido a un control circular accesible; el icono indica el estado y no tapa las fotos.
-- Se eliminó la precarga del collage y se da prioridad a la foto de portada. Efectos costosos simplificados en pantallas móviles.
-- El mensaje reflexivo final aparece solo después de pedir un deseo, sin botones adicionales.
+El repositorio continúa llamándose `simulador-de-jugos`. Renombrarlo cambia la ruta de GitHub Pages; verifica el nuevo enlace antes de compartirlo con Abel.
