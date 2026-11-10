@@ -4,7 +4,7 @@
 
 **Álbum en línea:** https://ayarang.github.io/simulador-de-jugos/tarjeta-cumpleanos/
 
-El álbum fotográfico conserva el collage original de cuatro fotografías, con estética de motos, casco y carretera, **sin comentarios individuales**.
+La portada presenta solo una fotografía pequeña y una frase reflexiva sobria para Abel. La vista interior conserva el collage original de cuatro fotografías, con estética de motos, casco y carretera, **sin comentarios individuales**. Para evitar repetir imágenes o añadir peso, el retrato de portada es un recorte visual del panel principal del mismo collage.
 
 ## Estructura modular
 

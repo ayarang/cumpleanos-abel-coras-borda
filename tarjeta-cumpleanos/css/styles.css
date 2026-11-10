@@ -49,3 +49,52 @@ a{color:inherit}
 @keyframes rise{from{opacity:0;transform:translateY(20px) scale(.98)}to{opacity:1;transform:none}}
 @media(max-width:450px){.topbar{padding:18px 17px}.brand{font-size:10px;letter-spacing:.12em}.topbar .edition{font-size:9px}.cover{padding:10px 17px 54px}.cover h1{font-size:clamp(74px,23vw,112px)}.cover h1 .surname{font-size:clamp(27px,9vw,45px)}.thumb-frame{max-width:195px;margin-top:20px;margin-bottom:23px}.album-head h2{font-size:clamp(38px,12vw,58px)}.album-image{margin-top:18px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.album.show,.thumb-frame,.cta{animation:none;transition:none}}
+
+
+/* Portada sobria — una fotografía pequeña y texto reflexivo.
+   Recorte del panel fotográfico principal del collage ya guardado, sin duplicar imágenes. */
+.cover{padding-top:18px;padding-bottom:50px}
+.cover h1{font-size:clamp(78px,11vw,120px);line-height:.87;margin-top:11px}
+.cover h1 .surname{font-size:clamp(27px,5vw,48px);margin-top:11px}
+.cover .rule{margin:15px auto 12px;width:50px;height:2px;opacity:.8}
+.thumb-frame.cover-photo{
+ position:relative;width:148px;height:166px;max-width:none;
+ overflow:hidden;margin:13px auto 18px;padding:0;transform:none!important;
+ border-radius:10px;border:1px solid rgba(235,178,110,.65);
+ background:#111719;filter:none;box-shadow:0 12px 33px rgba(0,0,0,.43);
+}
+.thumb-frame.cover-photo::before{content:none}
+.thumb-frame.cover-photo img{
+ position:absolute;top:0;left:50%;width:368px;max-width:none;height:auto;
+ aspect-ratio:auto;object-fit:initial;transform:translateX(-50%);
+ border:0;filter:saturate(.93) brightness(.94);
+}
+.cover:hover .thumb-frame.cover-photo{transform:none}
+.cover-reflection{
+ max-width:440px;margin:4px auto 6px;padding:0 8px;
+ font-size:clamp(12px,2.6vw,14px);line-height:1.8;font-weight:500;
+ letter-spacing:.003em;color:#e0dad2;text-wrap:pretty;
+}
+.cover-reflection span{color:#c1b7ad}
+.cover-wish{margin:8px auto 10px;font-size:14px;font-weight:800;letter-spacing:.01em;color:#f1b476}
+.cover .birthday-countdown{min-height:20px;margin:6px auto 13px}
+.cover .cta{min-height:48px;padding:13px 28px}
+.cover .cover-foot{margin-top:15px}
+@media(max-width:450px){
+ .cover{padding:8px 16px 36px}
+ .cover h1{font-size:clamp(69px,18vw,83px)}
+ .cover h1 .surname{font-size:clamp(27px,8vw,36px);margin-top:9px}
+ .thumb-frame.cover-photo{width:124px;height:145px;margin:13px auto 14px}
+ .thumb-frame.cover-photo img{width:315px}
+ .cover-reflection{max-width:355px;font-size:12px;line-height:1.65}
+ .cover-wish{font-size:13px}
+ .cover .birthday-countdown{font-size:9px;margin-bottom:12px}
+}
+@media(max-height:720px) and (max-width:600px){
+ .cover{padding-top:6px;padding-bottom:24px}
+ .cover h1{font-size:clamp(58px,17vw,73px)}
+ .thumb-frame.cover-photo{width:112px;height:128px;margin:9px auto}
+ .thumb-frame.cover-photo img{width:280px}
+ .cover-reflection{font-size:11px;line-height:1.6}
+ .cover .birthday-countdown{margin-bottom:7px}
+}
