@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#081821">
+<meta name="description" content="Una tarjeta de cumpleaños interactiva, hecha para sorprender.">
+<title>¡Feliz cumpleaños! · Una sorpresa especial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#081821;--ink:#f6f8f3;--muted:#a7bac0;--gold:#edc784;--teal:#72d4d1;--border:rgba(233,212,173,.23)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{min-height:100svh;margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.65 "DM Sans",system-ui,sans-serif;overflow-x:hidden}
+button,input{font:inherit}button{cursor:pointer;touch-action:manipulation}button:focus-visible,input:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+[hidden]{display:none!important}
+a{color:inherit}
+#confetti{position:fixed;inset:0;width:100vw;height:100vh;z-index:12;pointer-events:none}
+.page{position:relative;min-height:100svh;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse 80% 55% at 50% 15%,#22566a65,transparent 67%),radial-gradient(ellipse 80% 70% at 100% 100%,#1547487c,transparent 80%),#081821}
+.page::before{position:absolute;content:"";width:640px;height:640px;left:50%;top:10%;border-radius:50%;border:1px solid #deb87923;transform:translateX(-50%);box-shadow:0 0 0 90px #a2e0e508,0 0 0 200px #c5b67f06;pointer-events:none}
+.page::after{position:absolute;content:"✦";font-size:clamp(110px,15vw,230px);right:-29px;bottom:25px;color:#edd08c16;transform:rotate(12deg);pointer-events:none}
+.topbar{position:relative;z-index:5;max-width:1100px;margin:0 auto;padding:24px clamp(18px,5vw,50px);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:11px;color:#e9ded1;font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase}
+.brand-icon{display:grid;place-items:center;width:34px;height:34px;border:1px solid #ecc78450;border-radius:11px;color:var(--gold);font-size:21px}
+.ghost{border:1px solid #f4dbaf55;border-radius:100px;background:#14303bd9;color:#e9ddd0;padding:11px 17px;font-size:12px;font-weight:800;transition:background .2s,transform .2s}
+.ghost:hover{background:#214753;transform:translateY(-2px)}
+.hero{position:relative;z-index:2;display:grid;place-items:center;text-align:center;min-height:calc(100svh - 100px);padding:17px 20px 70px}
+.inner{max-width:840px;margin:0 auto}
+.eyebrow{display:inline-flex;align-items:center;gap:11px;color:#e7c68c;font-size:10px;font-weight:800;letter-spacing:.31em;text-transform:uppercase}
+.eyebrow::before,.eyebrow::after{content:"";display:block;width:25px;height:1px;background:#d6b277a8}
+.hero h1{margin:19px 0 12px;font:700 clamp(55px,10.5vw,110px)/.97 "Outfit",sans-serif;letter-spacing:-.075em}
+.hero h1 span{display:block;background:linear-gradient(100deg,#fff6dc,#e9c488 45%,#8bd2c9 95%);color:transparent;-webkit-background-clip:text;background-clip:text;padding-bottom:.09em}
+.sub{max-width:560px;margin:13px auto 0;color:#aec2c6;font-size:clamp(14px,2vw,17px);line-height:1.85}
+.line{height:1px;width:65px;margin:30px auto 22px;background:linear-gradient(90deg,transparent,#dfbf87,transparent)}
+.gift{position:relative;margin:30px auto 27px;width:clamp(145px,34vw,195px);height:184px;display:grid;place-items:center;cursor:pointer;border:0;background:none;filter:drop-shadow(0 28px 30px #0005);animation:gift-float 4s ease-in-out infinite}
+.gift-lid{position:absolute;top:30px;left:20px;width:calc(100% - 40px);height:34px;border-radius:7px;background:linear-gradient(135deg,#e9c88e,#ad8152);box-shadow:0 8px 0 #866640;transform:rotate(-5deg)}
+.gift-box{position:absolute;top:66px;left:26px;width:calc(100% - 52px);height:106px;border-radius:3px 3px 10px 10px;background:linear-gradient(145deg,#285260,#0c303b);border:2px solid #dcb67780;box-shadow:inset 0 0 20px #e1d0a615,0 15px 20px #0004}
+.ribbon{position:absolute;top:31px;bottom:12px;left:calc(50% - 9px);width:18px;background:linear-gradient(90deg,#af8350,#f7d9a1,#af8350);transform:rotate(-1deg)}
+.bow{position:absolute;top:3px;left:50%;transform:translateX(-50%);font-size:57px;color:#e7bf7f;text-shadow:0 5px 6px #0004;line-height:1}
+.shine{position:absolute;color:var(--gold);font-size:20px;animation:shine 3s ease-in-out infinite}
+.shine.a{left:-10px;top:36px}.shine.b{right:-3px;top:85px;animation-delay:-1.4s}
+.primary{display:inline-flex;align-items:center;justify-content:center;gap:12px;border:1px solid #fff0bf70;border-radius:100px;min-height:55px;padding:16px 29px;color:#132630;background:linear-gradient(110deg,#f1d398,#dfb875);box-shadow:0 13px 31px #0004,0 2px 12px #e7c18f24;font-weight:900;transition:transform .22s,filter .22s}
+.primary:hover{transform:translateY(-3px);filter:brightness(1.06)}
+.primary:active{transform:translateY(1px)}
+.micro{font-size:11px;color:#7e9aa3;margin:18px auto 0}
+.main-card{position:relative;z-index:3;max-width:910px;margin:18px auto 66px;padding:0 18px}
+.celebration{position:relative;text-align:center;background:linear-gradient(149deg,#143a46,#0b2330 60%,#0d2730);border:1px solid #d7bc8059;border-radius:30px;padding:clamp(28px,6vw,70px) clamp(21px,5vw,66px);box-shadow:0 30px 100px #0006, inset 0 0 0 1px #ffffff09;overflow:hidden;animation:card-arrive .9s cubic-bezier(.18,.9,.19,1) both}
+.celebration::before{content:"";position:absolute;width:300px;height:300px;top:-210px;left:50%;transform:translateX(-50%);background:#d8b57469;filter:blur(90px);border-radius:50%}
+.celebration>*{position:relative;z-index:1}
+.chapter{font-size:10px;letter-spacing:.32em;font-weight:800;text-transform:uppercase;color:#edcb8f;margin:0 0 17px}
+.celebration h2{margin:0;font:800 clamp(34px,7vw,70px)/1.07 "Outfit",sans-serif;letter-spacing:-.055em}
+.celebration h2 em{color:#efca8a;font-style:normal}
+.celebration .lead{max-width:585px;margin:18px auto 0;color:#c2d1d1;font-size:15px;line-height:1.85}
+.cake-art{display:block;max-width:min(360px,90%);width:100%;margin:25px auto 4px;filter:drop-shadow(0 23px 20px #0008)}
+.cake-flame{transform-origin:center;animation:flame 1.7s ease-in-out infinite alternate}
+.cake-flame:nth-child(2){animation-delay:-.45s}.cake-flame:nth-child(3){animation-delay:-.9s}
+.letter{max-width:650px;margin:26px auto 0;border:1px solid #e3cb9365;border-radius:16px;background:#ffffff0b;text-align:left;overflow:hidden}
+.letter summary{list-style:none;display:flex;align-items:center;justify-content:space-between;padding:17px 21px;color:#f3e3cb;font-weight:800;cursor:pointer}
+.letter summary::-webkit-details-marker{display:none}
+.letter summary span{color:#f0c984;font-size:20px;transition:transform .2s}
+.letter[open] summary span{transform:rotate(45deg)}
+.letter-body{padding:0 22px 20px;color:#bdd0d1;font-size:14px;line-height:1.95}
+.letter-body p{margin:0 0 14px}
+.letter-body p:last-child{color:#f1d395;font-weight:800;margin-bottom:0}
+.actions{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:13px;margin:29px auto 0}
+.footer{color:#729199;font-size:11px;text-align:center;margin:25px auto 0;letter-spacing:.07em}
+dialog{border:1px solid #edc98880;border-radius:23px;padding:26px;max-width:min(440px,calc(100vw - 30px));width:100%;background:#112c37;color:#fff;box-shadow:0 20px 85px #0008}
+dialog::backdrop{background:#051016c9;backdrop-filter:blur(6px)}
+dialog h3{font:700 26px/1.2 "Outfit",sans-serif;margin:0 0 10px}
+dialog p{font-size:13px;color:#b7c7c8}
+dialog label{display:block;font-weight:800;font-size:12px;margin:19px 0 8px}
+dialog input{display:block;width:100%;background:#071e28;color:#fff;border:1px solid #a0bcc38a;border-radius:12px;padding:14px 15px;min-height:47px}
+.dialog-actions{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;margin-top:19px}
+.toast{position:fixed;z-index:30;left:50%;bottom:25px;transform:translateX(-50%);max-width:calc(100vw - 28px);white-space:nowrap;background:#ebcb92;color:#10242e;padding:11px 21px;border-radius:99px;font-size:13px;font-weight:900;box-shadow:0 12px 35px #0008}
+.sparkle{position:absolute;width:4px;height:4px;border-radius:50%;background:var(--gold);opacity:.65;pointer-events:none;box-shadow:0 0 20px #f9d6a1}
+@keyframes gift-float{50%{transform:translateY(-9px) rotate(2deg)}}
+@keyframes shine{50%{opacity:.2;transform:scale(.7) rotate(30deg)}}
+@keyframes card-arrive{from{transform:translateY(35px) scale(.96);opacity:0}to{transform:none;opacity:1}}
+@keyframes flame{to{transform:scaleY(.8) translateY(1px)}}
+@media(max-width:540px){.topbar{padding:20px}.brand{font-size:9px;letter-spacing:.09em}.ghost{padding:10px 12px}.hero{padding-top:5px}.hero h1{font-size:clamp(52px,15vw,78px)}.gift{height:161px;transform:scale(.9);margin:15px auto 17px}.celebration{border-radius:21px}.main-card{padding-inline:13px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<canvas id="confetti" aria-hidden="true"></canvas>
+<div class="page">
+ <header class="topbar">
+  <span class="brand"><span class="brand-icon" aria-hidden="true">✦</span>Una sorpresa especial</span>
+  <button type="button" class="ghost" id="customize">Personalizar ✎</button>
+ </header>
+ <section class="hero" id="cover" aria-labelledby="cover-title">
+  <div class="inner">
+    <p class="eyebrow">EDICIÓN DE CUMPLEAÑOS</p>
+    <h1 id="cover-title">Hoy se celebra<span>en grande.</span></h1>
+    <p class="sub">Alguien merece un buen día, muchas razones para sonreír y una pequeña sorpresa hecha especialmente para él.</p>
+    <button class="gift" id="open-gift" type="button" aria-label="Abrir el regalo de cumpleaños">
+      <span class="shine a" aria-hidden="true">✦</span><span class="shine b" aria-hidden="true">✧</span>
+      <span class="gift-box" aria-hidden="true"></span><span class="ribbon" aria-hidden="true"></span><span class="gift-lid" aria-hidden="true"></span><span class="bow" aria-hidden="true">∞</span>
+    </button>
+    <button type="button" class="primary" id="start">Abrir mi sorpresa <span aria-hidden="true">↗</span></button>
+    <p class="micro">Toca el regalo. Lo mejor viene después.</p>
+  </div>
+ </section>
+ <main class="main-card" id="experience" hidden>
+  <section class="celebration" aria-labelledby="birthday-title">
+   <p class="chapter">UN DÍA PARA RECORDAR · FELIZ CUMPLEAÑOS</p>
+   <h2 id="birthday-title" tabindex="-1">¡Feliz cumpleaños,<br><em id="person">crack</em>!</h2>
+   <p class="lead">Que este nuevo año venga con buena salud, motivos para celebrar, metas cumplidas y momentos que valgan la pena. ¡Te lo mereces!</p>
+   <svg class="cake-art" viewBox="0 0 400 265" role="img" aria-labelledby="cake-name">
+    <title id="cake-name">Torta de cumpleaños moderna con velas encendidas</title>
+    <defs>
+     <linearGradient id="side" x2="1" y2="1"><stop stop-color="#326a74"/><stop offset="1" stop-color="#16414f"/></linearGradient>
+     <linearGradient id="top" x2="0" y2="1"><stop stop-color="#f8e1b2"/><stop offset="1" stop-color="#d3a867"/></linearGradient>
+     <radialGradient id="light"><stop stop-color="#fffdc8"/><stop offset=".55" stop-color="#ffdf75"/><stop offset="1" stop-color="#eea75a"/></radialGradient>
+    </defs>
+    <ellipse cx="200" cy="235" rx="152" ry="16" fill="#071821" opacity=".45"/>
+    <path d="M55 130V209Q55 235 200 235Q345 235 345 209V130Z" fill="url(#side)" stroke="#d9c18a" stroke-width="2"/>
+    <ellipse cx="200" cy="131" rx="145" ry="42" fill="#dbbf80"/>
+    <ellipse cx="200" cy="123" rx="142" ry="39" fill="url(#top)"/>
+    <path d="M64 137Q82 182 101 147Q122 178 142 147Q166 186 184 151Q206 187 225 151Q244 183 267 145Q300 183 328 138" fill="none" stroke="#f7e7b9" stroke-width="16" stroke-linecap="round"/>
+    <g fill="#f4db9a"><circle cx="99" cy="199" r="5"/><circle cx="144" cy="212" r="4"/><circle cx="194" cy="219" r="5"/><circle cx="255" cy="215" r="4"/><circle cx="298" cy="199" r="5"/></g>
+    <g stroke="#d9a76c" stroke-width="11" stroke-linecap="round"><path d="M160 97V63"/><path d="M200 87V47"/><path d="M240 97V63"/></g>
+    <g stroke="#fdf6d8" stroke-width="3"><path d="M160 97V63"/><path d="M200 87V47"/><path d="M240 97V63"/></g>
+    <g fill="url(#light)"><path class="cake-flame" d="M160 43Q175 61 160 68Q146 60 160 43Z"/><path class="cake-flame" d="M200 27Q217 44 200 51Q182 43 200 27Z"/><path class="cake-flame" d="M240 43Q255 61 240 68Q226 60 240 43Z"/></g>
+    <text x="200" y="177" text-anchor="middle" font-family="Outfit,Arial" font-size="20" font-weight="800" fill="#f9e8cc" letter-spacing="2">FELICIDADES</text>
+   </svg>
+   <details class="letter" id="message">
+    <summary>Hay algo más para ti <span aria-hidden="true">+</span></summary>
+    <div class="letter-body">
+     <p>Que nunca te falten las ganas de seguir adelante. Ojalá este nuevo año te traiga buenos momentos, proyectos que salgan bien y personas que sumen a tu vida.</p>
+     <p>Disfruta tu día, celebra a tu manera y sigue construyendo cosas grandes.</p>
+     <p>¡Un abrazo y feliz cumpleaños! 🎉</p>
+    </div>
+   </details>
+   <div class="actions">
+    <button class="primary" id="celebrate-again" type="button">¡Otra vez! ✦</button>
+    <button class="ghost" id="share" type="button">Compartir tarjeta ↗</button>
+    <button class="ghost" id="back" type="button">Ver el regalo de nuevo ⟲</button>
+   </div>
+   <p class="footer">HECHO PARA CELEBRAR · CON BUENAS VIBRAS ✦</p>
+  </section>
+ </main>
+</div>
+<dialog id="name-dialog" aria-labelledby="dialog-title">
+ <form id="name-form">
+  <h3 id="dialog-title">Un detalle más personal</h3>
+  <p>Escribe su nombre. El enlace se actualizará para que puedas compartir esta tarjeta con él.</p>
+  <label for="name-input">Nombre del cumpleañero</label>
+  <input id="name-input" type="text" maxlength="36" autocomplete="off" placeholder="Por ejemplo: Luis" />
+  <div class="dialog-actions">
+   <button type="button" id="cancel" class="ghost">Cancelar</button>
+   <button type="submit" class="primary">Guardar nombre ✦</button>
+  </div>
+ </form>
+</dialog>
+<p class="toast" id="toast" role="status" hidden></p>
+<script>
+'use strict';
+(function(){
+ const $=id=>document.getElementById(id);
+ const cover=$('cover'),experience=$('experience'),person=$('person'),modal=$('name-dialog'),input=$('name-input');
+ const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ let receiver='crack',noticeTimer=0,confetti=[],anim=0;
+ const canvas=$('confetti'),ctx=canvas.getContext('2d');
+ const palette=['#e9c789','#fff6c7','#73d5d2','#d5ede4','#c18d56','#f0e5d2'];
+ function clean(value){return String(value||'').replace(/[\u0000-\u001F\u007F<>]/g,'').trim().slice(0,36)}
+ function setName(value,updateLink){
+   receiver=clean(value)||'crack';
+   person.textContent=receiver;
+   document.title='¡Feliz cumpleaños, '+receiver+'! · Una sorpresa';
+   if(updateLink){
+     const url=new URL(location.href);
+     if(receiver==='crack')url.searchParams.delete('para');else url.searchParams.set('para',receiver);
+     history.replaceState(null,'',url.pathname+url.search+url.hash);
+   }
+ }
+ setName(new URLSearchParams(location.search).get('para'),false);
+ function size(){const dpr=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(innerWidth*dpr);canvas.height=Math.round(innerHeight*dpr);canvas.style.width=innerWidth+'px';canvas.style.height=innerHeight+'px';ctx.setTransform(dpr,0,0,dpr,0,0)}
+ size();addEventListener('resize',size,{passive:true});
+ function animate(){
+   ctx.clearRect(0,0,innerWidth,innerHeight);
+   const now=performance.now();
+   confetti=confetti.filter(p=>now-p.birth<p.life && p.y<innerHeight+50);
+   for(const p of confetti){
+     const fraction=(now-p.birth)/p.life;
+     p.vy+=.13;p.x+=p.vx;p.y+=p.vy;p.rotation+=p.spin;
+     ctx.save();ctx.globalAlpha=Math.min(1,Math.max(0,(1-fraction)*1.7));ctx.translate(p.x,p.y);ctx.rotate(p.rotation);ctx.fillStyle=p.color;ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);ctx.restore();
+   }
+   if(confetti.length)anim=requestAnimationFrame(animate);
+   else{cancelAnimationFrame(anim);anim=0;ctx.clearRect(0,0,innerWidth,innerHeight)}
+ }
+ function burst(){
+   if(reduce||!ctx)return;
+   const now=performance.now();
+   for(let i=0;i<125;i++){
+     const angle=Math.random()*Math.PI*2,speed=Math.random()*7+2;
+     confetti.push({x:innerWidth*.5,y:innerHeight*.32,vx:Math.cos(angle)*speed,vy:Math.sin(angle)*speed-5,birth:now,life:1700+Math.random()*1300,rotation:Math.random()*6,spin:(Math.random()-.5)*.17,color:palette[i%palette.length],w:3+Math.random()*5,h:5+Math.random()*9});
+   }
+   if(!anim)anim=requestAnimationFrame(animate);
+ }
+ function reveal(){
+   cover.hidden=true;experience.hidden=false;
+   scrollTo({top:0,behavior:'instant'});
+   $('birthday-title').focus({preventScroll:true});
+   burst();
+ }
+ $('start').addEventListener('click',reveal);
+ $('open-gift').addEventListener('click',reveal);
+ $('celebrate-again').addEventListener('click',burst);
+ $('back').addEventListener('click',()=>{experience.hidden=true;cover.hidden=false;$('message').open=false;scrollTo({top:0,behavior:'instant'});$('open-gift').focus({preventScroll:true})});
+ $('message').addEventListener('toggle',()=>{if($('message').open)burst()});
+ function notice(msg){
+   const el=$('toast');el.textContent=msg;el.hidden=false;clearTimeout(noticeTimer);noticeTimer=setTimeout(()=>{el.hidden=true},3000)
+ }
+ $('customize').addEventListener('click',()=>{input.value=receiver==='crack'?'':receiver;modal.showModal();setTimeout(()=>input.focus(),0)});
+ $('cancel').addEventListener('click',()=>modal.close());
+ $('name-form').addEventListener('submit',e=>{e.preventDefault();setName(input.value,true);modal.close();notice('¡Tarjeta personalizada! ✦')});
+ async function share(){
+   const data={title:'Una sorpresa de cumpleaños',text:'Te hice esta tarjeta de cumpleaños. ¡Ábrela! 🎉',url:location.href};
+   if(navigator.share){try{await navigator.share(data);return}catch(e){if(e.name==='AbortError')return}}
+   try{if(navigator.clipboard&&navigator.clipboard.writeText){await navigator.clipboard.writeText(location.href);notice('¡Enlace copiado!');return}}catch(e){}
+   const tmp=document.createElement('textarea');tmp.value=location.href;tmp.style.position='fixed';tmp.style.opacity='0';document.body.appendChild(tmp);tmp.select();
+   const ok=document.execCommand('copy');tmp.remove();
+   if(ok)notice('¡Enlace copiado!');else prompt('Copia el enlace:',location.href);
+ }
+ $('share').addEventListener('click',share);
+ document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(anim);anim=0;confetti=[];ctx.clearRect(0,0,innerWidth,innerHeight)}});
+})();
+</script>
+</body>
+</html>
