@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/birthday.css">
 <link rel="stylesheet" href="css/celebration.css">
-<link rel="stylesheet" href="css/music.css">
+<link rel="stylesheet" href="css/music.css?v=flotante-2">
 </head>
 <body>
 <canvas id="burst" aria-hidden="true"></canvas>
@@ -141,21 +141,22 @@
     <a class="modal-download" href="assets/album-abel.webp" download="Album-Abel-Coras-Borda.webp">Descargar imagen <span aria-hidden="true">↓</span></a>
   </div>
 </dialog>
-<button class="music-float" id="music-toggle" type="button" aria-expanded="false" aria-controls="music-corner" aria-label="Abrir música Linda Rosita" title="Abrir música" hidden>
+<!-- Este botón permanece oculto al abrir el regalo; solo reaparece al cerrar el video. -->
+<button class="music-float" id="music-toggle" type="button" aria-expanded="false" aria-controls="music-corner" aria-label="Volver a mostrar el video de Linda Rosita" title="Volver a mostrar el video" hidden>
   <span aria-hidden="true">♫</span>
 </button>
-<section class="music-corner" id="music-corner" aria-label="Música de Linda Rosita" hidden>
+<aside class="music-corner" id="music-corner" aria-label="Video flotante de Linda Rosita" hidden>
   <div class="music-corner__top">
     <div class="music-corner__title"><span class="music-corner__note" aria-hidden="true">♫</span><span><strong>Linda Rosita</strong><small>Chinito del Ande</small></span></div>
     <button class="music-corner__close" id="music-close" type="button" aria-label="Cerrar y detener la música">✕</button>
   </div>
-  <div class="music-corner__player" id="music-frame-slot" aria-label="Reproductor visible de YouTube"></div>
+  <div class="music-corner__player" id="music-frame-slot" aria-label="Video de YouTube que aparece automáticamente al abrir el regalo"></div>
   <div class="music-corner__bottom">
-    <span>Si no suena, pulsa ▶</span>
+    <span>Si no empieza, toca ▶</span>
     <a href="https://www.youtube.com/watch?v=d2_XXIqX1No&t=24s" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
   </div>
-</section>
+</aside>
 <p class="toast" id="toast" role="status" hidden></p>
-<script type="module" src="js/app.js"></script>
+<script type="module" src="js/app.js?v=flotante-2"></script>
 </body>
 </html>

@@ -48,3 +48,14 @@
  .gift-reveal{display:none!important}
  .music-corner{animation:none}
 }
+
+
+/* El video, no otro botón, es el protagonista al recibir el regalo.
+   El botón de nota solamente se muestra si la persona cierra el video. */
+.music-corner{display:block;isolation:isolate;max-width:calc(100vw - 18px)}
+.music-corner[hidden],.music-float[hidden]{display:none!important}
+.music-corner__player{background:#0d1111}
+.music-corner__player iframe{background:#0d1111}
+@media(min-width:840px){
+  .music-corner{right:18px;bottom:18px;width:258px}
+}

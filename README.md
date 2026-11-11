@@ -12,7 +12,7 @@ Este repositorio está dedicado exclusivamente al álbum de cumpleaños de Abel.
 - Collage original ampliable, con opción de descargarlo.
 - Torta interactiva con velas y humo, además de un mensaje final.
 - **Linda Rosita**, canción de Chinito del Ande, integrada mediante un reproductor visible del video publicado por Radio Picaflor en YouTube: https://www.youtube.com/watch?v=d2_XXIqX1No
-- La canción se intenta reproducir al pulsar «Abrir mi regalo», desde aproximadamente 0:24 (entrada vocal estimada, pendiente de verificar). El reproductor de YouTube queda visible en una esquina, con controles y opción para cerrarlo. En algunos móviles hay que pulsar Play manualmente.
+- Al pulsar «Abrir mi regalo», se presenta inmediatamente un video flotante en una esquina; no hace falta tocar un segundo botón musical. El iframe de YouTube intenta iniciar «Linda Rosita» en aproximadamente 0:24 (entrada vocal estimada). La reproducción con sonido depende del navegador: si se bloquea, se puede pulsar Play dentro del video. Al cerrar el video aparece un botón ♫ solo para volver a mostrarlo.
 
 ## Archivos
 

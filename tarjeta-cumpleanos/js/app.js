@@ -31,7 +31,9 @@ function showAlbum(){
   album.hidden=false;
   album.classList.add('is-revealed');
   window.scrollTo(0,0);
-  music?.openOnGift();
+  // La misma pulsación que abre el regalo muestra el video flotante.
+  // No hace falta tocar el botón musical para verlo.
+  music.openOnGift();
   const sparkle=$('gift-reveal');
   if(sparkle&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
     sparkle.hidden=false;
@@ -40,7 +42,8 @@ function showAlbum(){
     },{once:true});
   }
   $('album-title').focus({preventScroll:true});
-  // El clic de «Abrir mi regalo» solicita la reproducción de YouTube.
+  // El único clic necesario es «Abrir mi regalo».
+  // El navegador puede exigir Play en YouTube para activar el sonido.
   requestAnimationFrame(()=>burst());
 }
 $('open-album').addEventListener('click',showAlbum);
