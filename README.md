@@ -1,30 +1,27 @@
-# Álbum de cumpleaños — Abel Coras Borda 🏍️
+# Cumpleaños de Abel Coras Borda 🏍️🎂
 
 **Fecha:** miércoles 11 de noviembre de 2026.
 
-**Página publicada:** https://ayarang.github.io/cumpleanos-abel-coras-borda/tarjeta-cumpleanos/
+**Página principal:** https://ayarang.github.io/cumpleanos-abel-coras-borda/
 
-Álbum con portada sobria, una fotografía individual, collage original ampliable, una melodía original de piano y una torta con velas interactivas. Las fotografías y el simulador de jugos original (`index.htm`) se conservan.
+Este repositorio está dedicado exclusivamente al álbum de cumpleaños de Abel. La versión anterior del simulador de jugos fue eliminada. La página principal ahora redirige a la tarjeta.
 
-## Estructura modular
+## Qué contiene
 
-- `tarjeta-cumpleanos/index.html`: portada, álbum y el detalle 11:11.
-- `tarjeta-cumpleanos/assets/abel-portada.webp`: foto individual pequeña y optimizada.
-- `tarjeta-cumpleanos/assets/album-abel.webp`: collage original, ampliable y descargable.
-- `tarjeta-cumpleanos/css/styles.css`: diseño y efectos discretos de carretera y galería.
-- `tarjeta-cumpleanos/css/birthday.css`: estilos de la fecha fija.
-- `tarjeta-cumpleanos/css/celebration.css`: torta, velas, humo, piano flotante y dedicatoria final.
-- `tarjeta-cumpleanos/js/app.js`: navegación, botón 11:11 y visor de fotos.
-- `tarjeta-cumpleanos/js/confetti.js`: confeti ligero.
-- `tarjeta-cumpleanos/js/cake.js`: soplar velas y mensaje final.
-- `tarjeta-cumpleanos/js/piano.js`: *Un camino por delante*, composición instrumental original mediante Web Audio.
+- Portada con foto individual, dedicatoria y detalle secreto 11:11.
+- Collage original ampliable, con opción de descargarlo.
+- Torta interactiva con velas y humo, además de un mensaje final.
+- **Noche de Fiesta**, canción de Chinito del Ande, integrada mediante un reproductor oficial visible de YouTube: https://www.youtube.com/watch?v=YjX3wrPapJ0
+- El reproductor se carga únicamente al pulsar el botón musical y deja de sonar al cerrarlo. Si el navegador bloquea el inicio automático, se debe pulsar reproducir en el video.
 
-## Experiencia
+## Archivos
 
-La fecha del 11 de noviembre de 2026 es estática. No hay cronómetro ni cuenta regresiva. Al pulsar `11:11 ✦`, se revela la frase «Que nunca te falten caminos por descubrir». Al tocar «Abrir álbum» aparece una animación rápida de una carretera y se intenta iniciar el piano. Algunos navegadores requieren activarlo manualmente con el botón flotante.
+- Raíz: index.html redirige hacia el cumpleaños.
+- tarjeta-cumpleanos/index.html: estructura de la tarjeta.
+- tarjeta-cumpleanos/assets/: fotografías del álbum.
+- tarjeta-cumpleanos/css/: diseño, fecha, torta y música.
+- tarjeta-cumpleanos/js/app.js: lógica principal.
+- tarjeta-cumpleanos/js/music.js: integración del reproductor oficial.
+- tarjeta-cumpleanos/js/cake.js y confetti.js: animaciones.
 
-Se mantiene el collage original, con una ligera profundidad al pasar el cursor en computadoras. Al tocarlo, se abre el visor; dentro se puede descargar la imagen. La torta se puede tocar para apagar o volver a encender las velas. El resultado respeta el ajuste de movimiento reducido y no utiliza el micrófono ni pistas musicales de terceros.
-
-## Nombre del repositorio
-
-El repositorio continúa llamándose `simulador-de-jugos`. Renombrarlo cambia la ruta de GitHub Pages; verifica el nuevo enlace antes de compartirlo con Abel.
+La canción no está alojada ni copiada en el repositorio. El sitio no utiliza el micrófono.

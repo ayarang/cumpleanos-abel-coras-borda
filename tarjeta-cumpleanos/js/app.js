@@ -3,7 +3,7 @@
  * Fecha, efectos y estilos están separados en módulos.
  */
 import {initConfetti} from './confetti.js';
-import {initPiano} from './piano.js';
+import {initMusic} from './music.js';
 import {initCake} from './cake.js';
 
 const $=id=>document.getElementById(id);
@@ -11,7 +11,7 @@ const cover=$('cover');
 const album=$('album');
 const {burst}=initConfetti($('burst'));
 
-const piano=initPiano({button:$('piano-toggle')});
+initMusic({button:$('music-toggle'),dialog:$('music-dialog'),slot:$('music-frame-slot'),closeButton:$('music-close')});
 initCake({
   button:$('blow-candles'),
   scene:$('cake-scene'),
@@ -31,11 +31,9 @@ function showAlbum(){
   album.hidden=false;
   album.classList.add('is-revealed');
   window.scrollTo(0,0);
-  $('piano-toggle').hidden=false;
+  $('music-toggle').hidden=false;
   $('album-title').focus({preventScroll:true});
-  // El piano se inicia desde la misma interacción; si el navegador bloquea
-  // el sonido, el control flotante permite activarlo manualmente.
-  void piano.start();
+  // El reproductor oficial se carga solo al tocar el botón musical.
   requestAnimationFrame(()=>burst());
 }
 $('open-album').addEventListener('click',showAlbum);

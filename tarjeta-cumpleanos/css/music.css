@@ -1,0 +1,35 @@
+/* Chinito del Ande: música oficial con reproductor visible bajo demanda. */
+.music-float{
+ position:fixed;z-index:42;bottom:max(14px,env(safe-area-inset-bottom));left:max(14px,env(safe-area-inset-left));
+ display:grid;place-items:center;width:48px;height:48px;padding:0;border:1px solid #daa36a;border-radius:50%;
+ background:#1d2424;color:#edbc83;font-size:25px;font-weight:800;box-shadow:0 8px 21px #0008;
+ transition:background .16s,border-color .16s
+}
+.music-float:hover{background:#34302b;border-color:#f7c18d}
+.music-dialog{
+ position:fixed;inset:0;margin:auto;width:min(690px,calc(100vw - 24px));
+ max-width:none;max-height:calc(100dvh - 24px);padding:21px;
+ background:#161d20;color:#f7efe4;border:1px solid #ac7950;
+ border-radius:20px;box-shadow:0 22px 85px #000d;overflow:auto
+}
+.music-dialog::backdrop{background:#030608d7;backdrop-filter:blur(3px)}
+.music-dialog__head{display:flex;justify-content:space-between;gap:13px;align-items:start;margin-bottom:17px}
+.music-dialog__eyebrow{margin:0 0 5px;color:#dba16b;font-size:10px;letter-spacing:.13em;font-weight:800}
+.music-dialog h2{margin:0;font:800 clamp(29px,5vw,40px)/1 "Barlow Condensed",Impact,sans-serif}
+.music-dialog__artist{margin:5px 0 0;color:#b9b9b3;font-size:12px}
+.music-dialog__close{
+ display:grid;place-items:center;flex:none;min-width:42px;height:42px;padding:0;
+ border:1px solid #aa8969;border-radius:50%;background:#282c2c;color:#f0dec9;font-size:18px
+}
+.music-dialog__player{width:100%;min-height:200px;background:#0b1011;border-radius:12px;overflow:hidden}
+.music-dialog__player iframe{display:block;width:100%;height:auto;aspect-ratio:16/9;min-height:200px;border:0}
+.music-dialog__help{font-size:11px;color:#a6b2b1;line-height:1.65;margin:12px 0 5px}
+.music-dialog__external{display:inline-block;color:#f1bc7a;font-size:12px;font-weight:800;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:430px){
+ .music-dialog{padding:14px;width:calc(100vw - 18px);border-radius:15px}
+ .music-dialog__head{margin-bottom:12px}
+ .music-dialog__player{min-height:200px}
+ .music-dialog__player iframe{min-height:200px}
+ .music-dialog__eyebrow{font-size:9px}
+}
+@media(prefers-reduced-motion:reduce){.music-float{transition:none}}
