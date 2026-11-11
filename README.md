@@ -8,11 +8,11 @@ Este repositorio está dedicado exclusivamente al álbum de cumpleaños de Abel.
 
 ## Qué contiene
 
-- Portada con foto individual, dedicatoria y detalle secreto 11:11.
+- Portada con foto individual, título rodeado por un óvalo dorado sutil, dedicatoria y detalle secreto 11:11.
 - Collage original ampliable, con opción de descargarlo.
 - Torta interactiva con velas y humo, además de un mensaje final.
 - **Linda Rosita**, canción de Chinito del Ande, integrada mediante un reproductor visible del video publicado por Radio Picaflor en YouTube: https://www.youtube.com/watch?v=d2_XXIqX1No
-- Al pulsar «Abrir mi regalo», se presenta inmediatamente un video flotante en una esquina; no hace falta tocar un segundo botón musical. El iframe de YouTube intenta iniciar «Linda Rosita» en aproximadamente 0:24 (entrada vocal estimada). La reproducción con sonido depende del navegador: si se bloquea, se puede pulsar Play dentro del video. Al cerrar el video aparece un botón ♫ solo para volver a mostrarlo.
+- Al pulsar «Abrir mi regalo», se presenta inmediatamente un video flotante en una esquina; no hace falta tocar un segundo botón musical. El iframe de YouTube intenta iniciar «Linda Rosita» en aproximadamente 0:24 (entrada vocal estimada). Se activa la repetición del mismo video con loop=1 y playlist=videoId conforme a YouTube. La reproducción con sonido depende del navegador: si se bloquea, se puede pulsar Play dentro del video. Al cerrar el video aparece un botón ♫ solo para volver a mostrarlo.
 
 ## Archivos
 

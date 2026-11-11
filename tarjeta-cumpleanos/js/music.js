@@ -2,6 +2,7 @@
  * «Linda Rosita» — Chinito del Ande (YouTube / Radio Picaflor).
  * El VIDEO FLOTANTE aparece en el mismo clic de «Abrir mi regalo».
  * El enlace permanece en YouTube: no se descarga ni se aloja la canción.
+ * El video se repite con loop=1 y playlist=el mismo video (YouTube).
  * Los navegadores pueden bloquear autoplay de audio: se dejan controles
  * visibles por si el visitante necesita pulsar Play dentro del video.
  */
@@ -26,7 +27,7 @@ export function initMusic({button,panel,slot,closeButton}){
     const frame=document.createElement('iframe');
     frame.title='Linda Rosita - Chinito del Ande (Radio Picaflor)';
     frame.src='https://www.youtube-nocookie.com/embed/'+videoId+
-      '?start='+chorusStart+'&autoplay=1&mute=0&playsinline=1&controls=1&rel=0';
+      '?start='+chorusStart+'&autoplay=1&mute=0&playsinline=1&controls=1&rel=0&loop=1&playlist='+videoId;
     frame.allow='autoplay; encrypted-media; picture-in-picture; web-share';
     frame.allowFullscreen=true;
     frame.loading='eager';

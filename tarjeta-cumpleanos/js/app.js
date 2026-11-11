@@ -3,7 +3,7 @@
  * Fecha, efectos y estilos están separados en módulos.
  */
 import {initConfetti} from './confetti.js';
-import {initMusic} from './music.js';
+import {initMusic} from './music.js?v=loop-oval-1';
 import {initCake} from './cake.js';
 
 const $=id=>document.getElementById(id);
