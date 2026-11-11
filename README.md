@@ -2,7 +2,7 @@
 
 **Fecha:** miércoles 11 de noviembre de 2026.
 
-**Página publicada:** https://ayarang.github.io/simulador-de-jugos/tarjeta-cumpleanos/
+**Página publicada:** https://ayarang.github.io/cumpleanos-abel-coras-borda/tarjeta-cumpleanos/
 
 Álbum con portada sobria, una fotografía individual, collage original ampliable, una melodía original de piano y una torta con velas interactivas. Las fotografías y el simulador de jugos original (`index.htm`) se conservan.
 
