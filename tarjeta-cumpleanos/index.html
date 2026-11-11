@@ -21,6 +21,10 @@
 </head>
 <body>
 <canvas id="burst" aria-hidden="true"></canvas>
+<div class="gift-reveal" id="gift-reveal" aria-hidden="true" hidden>
+  <span class="gift-reveal__symbol">✦</span>
+  <span class="gift-reveal__label">UN REGALO PARA ABEL</span>
+</div>
 <div class="layout">
  <header class="topbar">
   <div class="brand"><span class="brand-mark" aria-hidden="true">✦</span>EDICIÓN ESPECIAL</div>
@@ -41,7 +45,7 @@
    </figure>
    <p class="cover-reflection">Hay personas que avanzan en silencio, pero dejan huella en cada camino.<br><span>Que este nuevo año te traiga claridad, fuerza y buenos momentos.</span></p>
    <p class="cover-wish">Feliz cumpleaños, Abel.</p>
-   <button class="cta" id="open-album" type="button">Abrir álbum <span aria-hidden="true">↗</span></button>
+   <button class="cta" id="open-album" type="button">Abrir mi regalo <span aria-hidden="true">✦</span></button>
    <p class="cover-foot">11 · 11 · 2026</p>
   </div>
  </section>
@@ -137,22 +141,20 @@
     <a class="modal-download" href="assets/album-abel.webp" download="Album-Abel-Coras-Borda.webp">Descargar imagen <span aria-hidden="true">↓</span></a>
   </div>
 </dialog>
-<button class="music-float" id="music-toggle" type="button" aria-haspopup="dialog" aria-controls="music-dialog" aria-label="Escuchar Linda Rosita de Chinito del Ande" title="Escuchar música" hidden>
+<button class="music-float" id="music-toggle" type="button" aria-expanded="false" aria-controls="music-corner" aria-label="Abrir música Linda Rosita" title="Abrir música" hidden>
   <span aria-hidden="true">♫</span>
 </button>
-<dialog class="music-dialog" id="music-dialog" aria-labelledby="music-heading">
-  <div class="music-dialog__head">
-    <div>
-      <p class="music-dialog__eyebrow">MÚSICA PARA ABEL · HUAYNO</p>
-      <h2 id="music-heading">Linda Rosita</h2>
-      <p class="music-dialog__artist">Chinito del Ande · Éxitos de Oro (Radio Picaflor)</p>
-    </div>
-    <button type="button" class="music-dialog__close" id="music-close" aria-label="Cerrar reproductor de música">✕</button>
+<section class="music-corner" id="music-corner" aria-label="Música de Linda Rosita" hidden>
+  <div class="music-corner__top">
+    <div class="music-corner__title"><span class="music-corner__note" aria-hidden="true">♫</span><span><strong>Linda Rosita</strong><small>Chinito del Ande</small></span></div>
+    <button class="music-corner__close" id="music-close" type="button" aria-label="Cerrar y detener la música">✕</button>
   </div>
-  <div class="music-dialog__player" id="music-frame-slot" aria-label="Reproductor oficial de YouTube"></div>
-  <p class="music-dialog__help">Si tu celular bloquea el inicio automático, toca reproducir en el video.</p>
-  <a class="music-dialog__external" href="https://www.youtube.com/watch?v=d2_XXIqX1No" target="_blank" rel="noopener noreferrer">Escuchar en YouTube ↗</a>
-</dialog>
+  <div class="music-corner__player" id="music-frame-slot" aria-label="Reproductor visible de YouTube"></div>
+  <div class="music-corner__bottom">
+    <span>Si no suena, pulsa ▶</span>
+    <a href="https://www.youtube.com/watch?v=d2_XXIqX1No&t=24s" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+  </div>
+</section>
 <p class="toast" id="toast" role="status" hidden></p>
 <script type="module" src="js/app.js"></script>
 </body>

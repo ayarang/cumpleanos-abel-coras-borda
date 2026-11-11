@@ -11,7 +11,7 @@ const cover=$('cover');
 const album=$('album');
 const {burst}=initConfetti($('burst'));
 
-initMusic({button:$('music-toggle'),dialog:$('music-dialog'),slot:$('music-frame-slot'),closeButton:$('music-close')});
+const music=initMusic({button:$('music-toggle'),panel:$('music-corner'),slot:$('music-frame-slot'),closeButton:$('music-close')});
 initCake({
   button:$('blow-candles'),
   scene:$('cake-scene'),
@@ -31,9 +31,16 @@ function showAlbum(){
   album.hidden=false;
   album.classList.add('is-revealed');
   window.scrollTo(0,0);
-  $('music-toggle').hidden=false;
+  music?.openOnGift();
+  const sparkle=$('gift-reveal');
+  if(sparkle&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    sparkle.hidden=false;
+    sparkle.addEventListener('animationend',()=>{
+      sparkle.hidden=true;
+    },{once:true});
+  }
   $('album-title').focus({preventScroll:true});
-  // El reproductor oficial se carga solo al tocar el botón musical.
+  // El clic de «Abrir mi regalo» solicita la reproducción de YouTube.
   requestAnimationFrame(()=>burst());
 }
 $('open-album').addEventListener('click',showAlbum);

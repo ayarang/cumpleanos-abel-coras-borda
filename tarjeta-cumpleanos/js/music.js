@@ -1,36 +1,45 @@
 /**
- * «Linda Rosita» · Chinito del Ande
- * Video publicado por Radio Picaflor: https://www.youtube.com/watch?v=d2_XXIqX1No
- * No se descargan ni se alojan grabaciones de terceros en GitHub.
+ * Linda Rosita (Chinito del Ande) · YouTube de Radio Picaflor.
+ * Se reproduce desde ~00:24 (punto aproximado de entrada vocal).
+ * No se descarga ni modifica audio: se usa el iframe original visible,
+ * con controles, de YouTube, creado tras el clic en «Abrir mi regalo».
+ * Algunos navegadores restringen el autoplay con sonido aun tras un clic.
  */
-export function initMusic({button,dialog,slot,closeButton}) {
-  if(!button||!dialog||!slot||!closeButton)return;
+export function initMusic({button,panel,slot,closeButton}){
+  if(!button||!panel||!slot||!closeButton)return {openOnGift(){}};
   const videoId='d2_XXIqX1No';
-  const url='https://www.youtube.com/watch?v='+videoId;
-  let lastFocus=null;
-  function close(){if(dialog.open)dialog.close();}
+  const chorusStart=24; // aproximado; por confirmar al escuchar el video
+  let giftOpened=false;
+
+  function show(){
+    panel.hidden=false;
+    button.hidden=true;
+    button.setAttribute('aria-expanded','true');
+    // Los controles y el video original siempre son visibles.
+    const iframe=document.createElement('iframe');
+    iframe.title='Linda Rosita - Chinito del Ande (Radio Picaflor)';
+    iframe.src='https://www.youtube-nocookie.com/embed/'+videoId+
+      '?start='+chorusStart+'&autoplay=1&playsinline=1&controls=1&rel=0';
+    iframe.allow='autoplay; encrypted-media; picture-in-picture; web-share';
+    iframe.allowFullscreen=true;
+    iframe.loading='eager';
+    iframe.referrerPolicy='strict-origin-when-cross-origin';
+    slot.replaceChildren(iframe);
+  }
   function stop(){
-    slot.replaceChildren(); // descargar iframe detiene la reproducción
-    if(lastFocus?.isConnected)lastFocus.focus({preventScroll:true});
+    // Quitar el iframe también detiene el sonido.
+    slot.replaceChildren();
+    panel.hidden=true;
+    button.hidden=false;
+    button.setAttribute('aria-expanded','false');
   }
-  function open(){
-    lastFocus=document.activeElement;
-    if(typeof dialog.showModal!=='function'){
-      window.open(url,'_blank','noopener,noreferrer');return;
+  button.addEventListener('click',show);
+  closeButton.addEventListener('click',stop);
+  return {
+    openOnGift(){
+      if(giftOpened)return;
+      giftOpened=true;
+      show();
     }
-    dialog.showModal();
-    const frame=document.createElement('iframe');
-    frame.title='Linda Rosita - Chinito del Ande (Radio Picaflor)';
-    frame.src='https://www.youtube-nocookie.com/embed/'+videoId+'?autoplay=1&playsinline=1&rel=0';
-    frame.allow='autoplay; encrypted-media; picture-in-picture; web-share';
-    frame.allowFullscreen=true;
-    frame.loading='eager';
-    frame.referrerPolicy='strict-origin-when-cross-origin';
-    slot.replaceChildren(frame);
-    closeButton.focus({preventScroll:true});
-  }
-  button.addEventListener('click',open);
-  closeButton.addEventListener('click',close);
-  dialog.addEventListener('close',stop);
-  dialog.addEventListener('click',e=>{if(e.target===dialog)close()});
+  };
 }
