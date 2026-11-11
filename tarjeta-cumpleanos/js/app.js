@@ -4,7 +4,8 @@
  */
 import {initConfetti} from './confetti.js';
 import {initMusic} from './music.js?v=loop-oval-1';
-import {initCake} from './cake.js';
+import {initCake} from './cake.js?v=emocion-1';
+import {initEmotion} from './emotion.js?v=1';
 
 const $=id=>document.getElementById(id);
 const cover=$('cover');
@@ -12,6 +13,7 @@ const album=$('album');
 const {burst}=initConfetti($('burst'));
 
 const music=initMusic({button:$('music-toggle'),panel:$('music-corner'),slot:$('music-frame-slot'),closeButton:$('music-close')});
+const emotion=initEmotion({finale:$('emotion-finale')});
 initCake({
   button:$('blow-candles'),
   scene:$('cake-scene'),
@@ -19,7 +21,8 @@ initCake({
   onWish:()=>{
     const rect=$('cake-scene').getBoundingClientRect();
     burst({x:rect.left+rect.width/2,y:Math.max(20,rect.top+rect.height*.25),count:38});
-  }
+  },
+  onChange:blown=>emotion.setWishRevealed(blown)
 });
 
 // Respuesta inmediata al toque: sin temporizadores ni repintados forzados.

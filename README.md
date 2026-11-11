@@ -25,3 +25,7 @@ Este repositorio está dedicado exclusivamente al álbum de cumpleaños de Abel.
 - tarjeta-cumpleanos/js/cake.js y confetti.js: animaciones.
 
 La canción no está alojada ni copiada en el repositorio: sigue siendo un video de YouTube publicado por Radio Picaflor. El detalle de regalo es una animación original liviana. El sitio no utiliza el micrófono.
+
+## Mensajes emotivos (11/11/2026)
+
+La carta «Unas palabras para ti», las tres frases de las fotos originales, «Valiente» y el cierre «No todos dejan huella. Tú sí.» aparecen en el álbum sin crear una página adicional. El cierre se revela al apagar las velas y se oculta si se vuelven a encender. La animación de apertura dice «Este detalle es para recordarte lo valioso que eres, Abel». Se mantiene el código modular: `css/emotion.css` para estilos y `js/emotion.js` para el cierre; `cake.js` emite el cambio de estado mediante una devolución opcional, sin alterar la galería ni el reproductor musical.

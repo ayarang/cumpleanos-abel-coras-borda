@@ -2,7 +2,7 @@
  * Torta interactiva: tocar para apagar, tocar de nuevo para encender.
  * No pide permisos de micrófono; funciona también en móviles y con teclado.
  */
-export function initCake({button,scene,result,onWish}){
+export function initCake({button,scene,result,onWish,onChange}){
   if(!button||!scene||!result)return;
   const label=document.getElementById('blow-label');
   const instruction=document.getElementById('wish-instruction');
@@ -20,6 +20,7 @@ export function initCake({button,scene,result,onWish}){
   function toggle(){
     blown=!blown;
     render();
+    onChange?.(blown);
     if(blown)onWish?.();
   }
   button.addEventListener('click',toggle);

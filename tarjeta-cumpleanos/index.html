@@ -21,12 +21,13 @@
 <link rel="stylesheet" href="css/birthday.css">
 <link rel="stylesheet" href="css/celebration.css">
 <link rel="stylesheet" href="css/music.css?v=flotante-2">
+<link rel="stylesheet" href="css/emotion.css?v=1">
 </head>
 <body>
 <canvas id="burst" aria-hidden="true"></canvas>
 <div class="gift-reveal" id="gift-reveal" aria-hidden="true" hidden>
   <span class="gift-reveal__symbol">✦</span>
-  <span class="gift-reveal__label">UN REGALO PARA ABEL</span>
+  <span class="gift-reveal__label">Este detalle es para recordarte lo valioso que eres, Abel.</span>
 </div>
 <div class="layout">
  <header class="topbar">
@@ -57,27 +58,43 @@
     <span>LA RUTA CONTINÚA</span>
   </div>
   <div class="album-head"><span class="overline">11 DE NOVIEMBRE DE 2026 · EDICIÓN ESPECIAL</span><h2 id="album-title" tabindex="-1">Feliz cumpleaños, <span>Abel.</span></h2></div>
+  <section class="emotion-letter" aria-labelledby="emotion-title">
+    <p class="emotion-kicker">UNAS PALABRAS PARA TI</p>
+    <h3 id="emotion-title">Hay personas que dejan huella.</h3>
+    <p><strong>Abel,</strong> hay personas que no necesitan hacer ruido para dejar huella. Tú eres una de ellas.</p>
+    <p>Que este nuevo año te encuentre con más fuerza, más calma y más motivos para seguir avanzando.</p>
+    <p>Hoy celebramos la persona que eres y todo lo que todavía te espera por vivir.</p>
+    <span class="emotion-signature">Feliz cumpleaños. <span aria-hidden="true">✦</span></span>
+  </section>
   <div class="album-triptych" aria-label="Galería de recuerdos de Abel">
     <figure class="album-side-photo album-side-photo--left">
       <button type="button" id="zoom-mirador" class="album-side-photo__button" aria-label="Ampliar foto de Abel en un mirador nocturno">
         <img src="assets/abel_mirador_noche.webp" width="360" height="480" loading="lazy" decoding="async" alt="Abel con camiseta negra y zapatillas rojas en un mirador junto al mar por la noche">
         <span class="album-side-photo__zoom" aria-hidden="true">⤢</span>
       </button>
+    <figcaption class="emotion-photo-caption">Siempre mirando más allá.</figcaption>
     </figure>
     <figure class="album-image">
       <button type="button" id="zoom-album" class="album-zoom-button" aria-label="Ampliar collage de Abel en pantalla completa">
         <img src="assets/album-abel.webp" width="1122" height="1402" alt="Collage de cuatro fotografías de Abel en la montaña, con motivos de motos y carretera" decoding="async" loading="lazy">
         <span class="zoom-mark" aria-hidden="true">⤢</span>
       </button>
+    <figcaption class="emotion-photo-caption emotion-photo-caption--center">Momentos que merecen quedarse.</figcaption>
     </figure>
     <figure class="album-side-photo album-side-photo--right">
       <button type="button" id="zoom-pasarela" class="album-side-photo__button" aria-label="Ampliar foto nocturna de Abel en una pasarela">
         <img src="assets/abel_pasarela_noche.webp" width="360" height="480" loading="lazy" decoding="async" alt="Abel con camiseta negra y zapatillas rojas junto a una estructura metálica azul iluminada por la noche">
         <span class="album-side-photo__zoom" aria-hidden="true">⤢</span>
       </button>
+    <figcaption class="emotion-photo-caption">Cada paso también cuenta.</figcaption>
     </figure>
   </div>
   <p class="album-hint">Toca la foto para ampliarla <span aria-hidden="true">↗</span><br><span>Desliza hacia abajo para pedir un deseo</span> <span aria-hidden="true">↓</span></p>
+  <section class="emotion-identity" aria-labelledby="identity-title">
+    <p class="emotion-kicker">SI HOY TUVIERA QUE RESUMIRTE EN UNA PALABRA…</p>
+    <h3 id="identity-title">Valiente.</h3>
+    <p>Porque sigues tu camino, avanzas a tu manera y dejas huella sin perder tu esencia.</p>
+  </section>
   <section class="wish-section" id="deseo" aria-labelledby="wish-title">
     <div class="wish-arc" aria-hidden="true"><span>✦</span></div>
     <p class="wish-kicker">UN NUEVO CAMINO COMIENZA</p>
@@ -145,6 +162,12 @@
       <strong>Feliz cumpleaños, Abel. 🏍️</strong>
     </div>
   </section>
+  <section class="emotion-finale" id="emotion-finale" aria-labelledby="emotion-finale-title" hidden>
+    <p class="emotion-kicker">PARA TI, ABEL</p>
+    <h3 id="emotion-finale-title">No todos dejan huella. <em>Tú sí.</em></h3>
+    <p>Que nunca te falten fuerzas para seguir, caminos por recorrer ni razones para sonreír.</p>
+    <strong>Feliz cumpleaños, Abel.</strong>
+  </section>
   <p class="credit">ABEL CORAS BORDA · 11 NOVIEMBRE 2026</p>
  </main>
 </div>
@@ -171,6 +194,6 @@
   </div>
 </aside>
 <p class="toast" id="toast" role="status" hidden></p>
-<script type="module" src="js/app.js?v=galeria-tres-fotos-1"></script>
+<script type="module" src="js/app.js?v=emocion-1"></script>
 </body>
 </html>
