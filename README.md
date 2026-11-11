@@ -29,3 +29,7 @@ La canción no está alojada ni copiada en el repositorio: sigue siendo un video
 ## Mensajes emotivos (11/11/2026)
 
 La carta «Unas palabras para ti», las tres frases de las fotos originales, «Valiente» y el cierre «No todos dejan huella. Tú sí.» aparecen en el álbum sin crear una página adicional. El cierre se revela al apagar las velas y se oculta si se vuelven a encender. La animación de apertura dice «Este detalle es para recordarte lo valioso que eres, Abel». Se mantiene el código modular: `css/emotion.css` para estilos y `js/emotion.js` para el cierre; `cake.js` emite el cambio de estado mediante una devolución opcional, sin alterar la galería ni el reproductor musical.
+
+## Ajustes finales en Android (11/11/2026)
+
+Se creó `tarjeta-cumpleanos/css/mobile.css` como capa de estilos exclusivos para móviles (cargada después de los otros CSS). La portada queda centrada y de ancho contenido, y la galería mantiene las tres fotos **en una misma fila**: mirador a la izquierda, collage al centro y pasarela a la derecha, incluso en pantallas angostas. El collage se redujo proporcionalmente sin perder el visor táctil. El reproductor flotante de `Linda Rosita` mantiene la reproducción automática solicitada y conserva un iframe de 200 × 200 px, tamaño mínimo exigido por YouTube; se eliminaron márgenes y textos adicionales del marco móvil. No se modificaron archivos de escritorio ni las fotografías.

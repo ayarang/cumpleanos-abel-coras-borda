@@ -1,0 +1,149 @@
+/**
+ * Retoques finales de móvil — Abel Coras Borda
+ * Overrides deliberados sobre styles.css, music.css y emotion.css.
+ * En pantallas grandes no cambia absolutamente nada.
+ */
+@media (max-width: 680px){
+  /* La portada panorámica debe ser un detalle centrado, no ocupar todo el ancho. */
+  .cover.cover--premium{
+    width:100%;
+    min-height:calc(100svh - 75px);
+    gap:12px;
+    padding:12px 12px max(24px,env(safe-area-inset-bottom));
+    justify-content:center;
+  }
+  .premium-hero{
+    width:min(100%,350px);
+    max-width:350px;
+    margin-inline:auto;
+    border-radius:13px;
+    box-shadow:0 11px 34px #0009;
+  }
+  .premium-hero__photo{
+    display:block;
+    width:100%;
+    height:auto;
+    object-fit:contain;
+  }
+  .premium-hero__gift{
+    width:79%;
+    min-width:0;
+    min-height:42px;
+    padding:6px 10px;
+    bottom:2%;
+    gap:6px;
+    font-size:13px;
+  }
+  .premium-cover-footer{max-width:350px;gap:6px;padding-inline:6px}
+  .premium-cover-footer__quote{font-size:11px;line-height:1.6}
+  .premium-cover-footer__meta{font-size:9px;gap:10px}
+
+  /* Tres fotos en UNA fila como en computadora.
+     El collage central destaca, pero no es un bloque gigante en móvil. */
+  .album{padding-inline:10px;padding-bottom:35px}
+  .album-head{padding:5px 4px 8px}
+  .album-head h2{font-size:clamp(33px,9vw,43px);line-height:1.02}
+  .album-triptych{
+    width:min(100%,440px);
+    max-width:440px;
+    display:grid;
+    grid-template-columns:minmax(0,.79fr) minmax(0,1.42fr) minmax(0,.79fr);
+    grid-template-areas:"left center right";
+    align-items:center;
+    column-gap:6px;
+    row-gap:0;
+    margin:12px auto 6px;
+    padding:0;
+  }
+  .album-triptych .album-image{
+    grid-area:center;
+    width:100%;
+    max-width:none;
+    min-width:0;
+    margin:0;
+    padding:3px;
+    box-shadow:0 8px 19px #0008;
+    border-radius:8px;
+  }
+  .album-triptych .album-image::before{display:none}
+  .album-triptych .album-image img{
+    width:100%;
+    max-width:100%;
+    height:auto;
+    object-fit:contain;
+  }
+  .album-side-photo{
+    min-width:0;
+    width:100%;
+    padding:3px;
+    border-radius:7px;
+    box-shadow:0 7px 17px #0008;
+  }
+  .album-side-photo__button{border-radius:4px}
+  .album-side-photo__button img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover}
+  .album-side-photo::after{display:none}
+  .album-triptych .emotion-photo-caption,
+  .album-triptych .emotion-photo-caption--center{
+    font-size:clamp(8px,2.25vw,10px);
+    line-height:1.35;
+    margin:7px 0 2px;
+    padding:0;
+    font-weight:600;
+    overflow-wrap:break-word;
+  }
+  .album-side-photo__zoom{
+    width:20px;height:20px;right:3px;top:3px;font-size:14px;border-width:1px;
+  }
+  .zoom-mark{width:26px;height:26px;right:4px;top:4px;font-size:18px}
+  .album-hint{max-width:370px;font-size:10px;line-height:1.6;margin:7px auto 0}
+  .emotion-letter{width:min(100%,420px);margin:13px auto 14px;padding:19px 14px}
+  .emotion-letter h3{font-size:clamp(27px,7vw,36px);margin-bottom:10px}
+  .emotion-letter p:not(.emotion-kicker){font-size:12px;line-height:1.65;margin:8px auto}
+  .emotion-identity{width:min(100%,420px);margin:21px auto 0;padding:19px 13px}
+
+  /* Reproductor flotante reducido al mínimo compatible con YouTube:
+     iframe de 200x200, sin barras de texto adicionales en el móvil. */
+  .music-corner{
+    box-sizing:border-box;
+    width:214px;
+    max-width:calc(100vw - 20px);
+    right:max(9px,env(safe-area-inset-right));
+    bottom:max(9px,env(safe-area-inset-bottom));
+    padding:6px;
+    border-radius:11px;
+    box-shadow:0 9px 23px #000c;
+  }
+  .music-corner__top{
+    min-height:29px;
+    padding:0 0 5px;
+    gap:5px;
+  }
+  .music-corner__title{gap:5px}
+  .music-corner__title strong{font-size:11px}
+  .music-corner__title small{display:none}
+  .music-corner__note{width:22px;height:22px;font-size:14px}
+  .music-corner__close{width:27px;height:27px;font-size:12px}
+  .music-corner__player{
+    width:200px;
+    height:200px;
+    max-width:100%;
+    border-radius:5px;
+  }
+  .music-corner__player iframe{
+    display:block;
+    width:200px;
+    height:200px;
+    min-width:200px;
+    min-height:200px;
+    border:0;
+  }
+  .music-corner__bottom{display:none}
+}
+@media (max-width:380px){
+  .premium-hero{width:min(100%,315px)}
+  .album-triptych{column-gap:4px;grid-template-columns:minmax(0,.79fr) minmax(0,1.42fr) minmax(0,.79fr)}
+  .album-triptych .emotion-photo-caption,.album-triptych .emotion-photo-caption--center{font-size:8px}
+}
+@media (prefers-reduced-motion:reduce){
+ .premium-hero,.music-corner{animation:none}
+}
