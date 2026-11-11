@@ -8,7 +8,7 @@ Este repositorio está dedicado exclusivamente al álbum de cumpleaños de Abel.
 
 ## Qué contiene
 
-- Portada con foto individual, título rodeado por un óvalo dorado sutil, dedicatoria y detalle secreto 11:11.
+- Nueva portada cinematográfica aprobada con Abel y su motocicleta en carretera, óvalo dorado, globos y título. La foto está integrada en WebP optimizado y tiene una cajita de regalo interactiva delante del botón «Abrir mi regalo»; mantiene dedicatoria y el secreto 11:11.
 - Collage original ampliable, con opción de descargarlo.
 - Torta interactiva con velas y humo, además de un mensaje final.
 - **Linda Rosita**, canción de Chinito del Ande, integrada mediante un reproductor visible del video publicado por Radio Picaflor en YouTube: https://www.youtube.com/watch?v=d2_XXIqX1No
@@ -18,7 +18,7 @@ Este repositorio está dedicado exclusivamente al álbum de cumpleaños de Abel.
 
 - Raíz: index.html redirige hacia el cumpleaños.
 - tarjeta-cumpleanos/index.html: estructura de la tarjeta.
-- tarjeta-cumpleanos/assets/: fotografías del álbum.
+- tarjeta-cumpleanos/assets/: fotografías del álbum y portada `abel-ruta-dorada.webp`.
 - tarjeta-cumpleanos/css/: diseño, fecha, torta y música.
 - tarjeta-cumpleanos/js/app.js: lógica principal.
 - tarjeta-cumpleanos/js/music.js: integración del reproductor oficial.

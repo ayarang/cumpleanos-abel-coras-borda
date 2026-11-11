@@ -13,8 +13,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="preload" href="assets/abel-portada.webp" as="image" type="image/webp" fetchpriority="high">
-<link rel="stylesheet" href="css/styles.css?v=oval-fino-1">
+<link rel="preload" href="assets/abel-ruta-dorada.webp" as="image" type="image/webp" fetchpriority="high">
+<link rel="stylesheet" href="css/styles.css?v=portada-ruta-dorada-1">
 <link rel="stylesheet" href="css/birthday.css">
 <link rel="stylesheet" href="css/celebration.css">
 <link rel="stylesheet" href="css/music.css?v=flotante-2">
@@ -30,26 +30,20 @@
   <div class="brand"><span class="brand-mark" aria-hidden="true">✦</span>EDICIÓN ESPECIAL</div>
   <div class="edition">ÁLBUM DE CUMPLEAÑOS<br>🏍️ · 11 NOV 2026</div>
  </header>
- <section class="cover" id="cover" aria-labelledby="cover-name">
-  <div class="cover-inner">
-   <p class="cover-eyebrow">Un día para recordar</p>
-   <time class="birthday-date" datetime="2026-11-11"><span>MIÉRCOLES</span><strong>11</strong><span>NOVIEMBRE<br>2026</span></time>
-   <div class="secret-date-wrap">
-     <button class="secret-time" id="secret-1111" type="button" aria-expanded="false" aria-controls="secret-phrase" aria-label="Descubrir detalle secreto del 11:11">11:11 <span aria-hidden="true">✦</span></button>
-     <p class="secret-phrase" id="secret-phrase" hidden>Que nunca te falten caminos por descubrir.</p>
-   </div>
-   <div class="cover-name-oval">
-     <span class="cover-name-oval__spark" aria-hidden="true">✦</span>
-     <h1 id="cover-name"><span>ABEL</span><span class="surname">CORAS BORDA</span></h1>
-   </div>
-   <div class="rule"></div>
-   <figure class="cover-portrait">
-     <img src="assets/abel-portada.webp" width="240" height="300" alt="Abel sentado en una roca frente a un paisaje de montañas" fetchpriority="high" decoding="async">
-   </figure>
-   <p class="cover-reflection">Hay personas que avanzan en silencio, pero dejan huella en cada camino.<br><span>Que este nuevo año te traiga claridad, fuerza y buenos momentos.</span></p>
-   <p class="cover-wish">Feliz cumpleaños, Abel.</p>
-   <button class="cta" id="open-album" type="button">Abrir mi regalo <span aria-hidden="true">✦</span></button>
-   <p class="cover-foot">11 · 11 · 2026</p>
+ <section class="cover cover--premium" id="cover" aria-labelledby="cover-name">
+  <h1 class="premium-sr-only" id="cover-name">Feliz cumpleaños, Abel Coras Borda</h1>
+  <div class="premium-hero" aria-label="Portada especial de cumpleaños de Abel">
+    <img class="premium-hero__photo" src="assets/abel-ruta-dorada.webp" width="900" height="507" decoding="async" fetchpriority="high"
+      alt="Portada de Feliz cumpleaños Abel Coras Borda: Abel en su moto junto a señales de carretera, un marco ovalado dorado y globos elegantes a los lados">
+    <button class="premium-hero__gift" id="open-album" type="button" aria-label="Abrir mi regalo de cumpleaños">
+      <span class="premium-giftbox" aria-hidden="true"><span class="premium-giftbox__lid"></span><span class="premium-giftbox__body"></span><span class="premium-giftbox__ribbon"></span></span>
+      <span>Abrir mi regalo</span><span class="premium-hero__star" aria-hidden="true">✦</span>
+    </button>
+  </div>
+  <div class="premium-cover-footer">
+    <p class="premium-cover-footer__quote">Hay personas que avanzan en silencio, pero dejan huella en cada camino.</p>
+    <div class="premium-cover-footer__meta"><time datetime="2026-11-11">11 · 11 · 2026</time><span aria-hidden="true">✦</span><button class="premium-cover-footer__secret" id="secret-1111" type="button" aria-expanded="false" aria-controls="secret-phrase" aria-label="Descubrir detalle secreto del 11:11">11:11</button></div>
+    <p class="secret-phrase" id="secret-phrase" hidden>Que nunca te falten caminos por descubrir.</p>
   </div>
  </section>
  <main class="album" id="album" hidden aria-labelledby="album-title">
