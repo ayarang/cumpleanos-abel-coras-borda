@@ -11,7 +11,7 @@ Este repositorio está dedicado exclusivamente al álbum de cumpleaños de Abel.
 - Portada con foto individual, dedicatoria y detalle secreto 11:11.
 - Collage original ampliable, con opción de descargarlo.
 - Torta interactiva con velas y humo, además de un mensaje final.
-- **Noche de Fiesta**, canción de Chinito del Ande, integrada mediante un reproductor oficial visible de YouTube: https://www.youtube.com/watch?v=YjX3wrPapJ0
+- **Linda Rosita**, canción de Chinito del Ande, integrada mediante un reproductor visible del video publicado por Radio Picaflor en YouTube: https://www.youtube.com/watch?v=d2_XXIqX1No
 - El reproductor se carga únicamente al pulsar el botón musical y deja de sonar al cerrarlo. Si el navegador bloquea el inicio automático, se debe pulsar reproducir en el video.
 
 ## Archivos

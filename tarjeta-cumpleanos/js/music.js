@@ -1,11 +1,11 @@
 /**
- * «Noche de Fiesta» · Chinito del Ande
- * Reproductor oficial: https://www.youtube.com/watch?v=YjX3wrPapJ0
+ * «Linda Rosita» · Chinito del Ande
+ * Video publicado por Radio Picaflor: https://www.youtube.com/watch?v=d2_XXIqX1No
  * No se descargan ni se alojan grabaciones de terceros en GitHub.
  */
 export function initMusic({button,dialog,slot,closeButton}) {
   if(!button||!dialog||!slot||!closeButton)return;
-  const videoId='YjX3wrPapJ0';
+  const videoId='d2_XXIqX1No';
   const url='https://www.youtube.com/watch?v='+videoId;
   let lastFocus=null;
   function close(){if(dialog.open)dialog.close();}
@@ -20,7 +20,7 @@ export function initMusic({button,dialog,slot,closeButton}) {
     }
     dialog.showModal();
     const frame=document.createElement('iframe');
-    frame.title='Noche de Fiesta - Chinito del Ande (video oficial)';
+    frame.title='Linda Rosita - Chinito del Ande (Radio Picaflor)';
     frame.src='https://www.youtube-nocookie.com/embed/'+videoId+'?autoplay=1&playsinline=1&rel=0';
     frame.allow='autoplay; encrypted-media; picture-in-picture; web-share';
     frame.allowFullscreen=true;
