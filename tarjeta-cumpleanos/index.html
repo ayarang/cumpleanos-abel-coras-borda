@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="preload" href="assets/abel-ruta-dorada.webp" as="image" type="image/webp" fetchpriority="high">
-<link rel="stylesheet" href="css/styles.css?v=portada-ruta-dorada-1">
+<link rel="stylesheet" href="css/styles.css?v=galeria-tres-fotos-1">
 <link rel="stylesheet" href="css/birthday.css">
 <link rel="stylesheet" href="css/celebration.css">
 <link rel="stylesheet" href="css/music.css?v=flotante-2">
@@ -57,12 +57,26 @@
     <span>LA RUTA CONTINÚA</span>
   </div>
   <div class="album-head"><span class="overline">11 DE NOVIEMBRE DE 2026 · EDICIÓN ESPECIAL</span><h2 id="album-title" tabindex="-1">Feliz cumpleaños, <span>Abel.</span></h2></div>
-  <figure class="album-image">
-    <button type="button" id="zoom-album" class="album-zoom-button" aria-label="Ampliar collage de Abel en pantalla completa">
-      <img src="assets/album-abel.webp" width="1122" height="1402" alt="Collage de cuatro fotografías de Abel en la montaña, con motivos de motos y carretera" decoding="async" loading="lazy">
-      <span class="zoom-mark" aria-hidden="true">⤢</span>
-    </button>
-  </figure>
+  <div class="album-triptych" aria-label="Galería de recuerdos de Abel">
+    <figure class="album-side-photo album-side-photo--left">
+      <button type="button" id="zoom-mirador" class="album-side-photo__button" aria-label="Ampliar foto de Abel en un mirador nocturno">
+        <img src="assets/abel_mirador_noche.webp" width="360" height="480" loading="lazy" decoding="async" alt="Abel con camiseta negra y zapatillas rojas en un mirador junto al mar por la noche">
+        <span class="album-side-photo__zoom" aria-hidden="true">⤢</span>
+      </button>
+    </figure>
+    <figure class="album-image">
+      <button type="button" id="zoom-album" class="album-zoom-button" aria-label="Ampliar collage de Abel en pantalla completa">
+        <img src="assets/album-abel.webp" width="1122" height="1402" alt="Collage de cuatro fotografías de Abel en la montaña, con motivos de motos y carretera" decoding="async" loading="lazy">
+        <span class="zoom-mark" aria-hidden="true">⤢</span>
+      </button>
+    </figure>
+    <figure class="album-side-photo album-side-photo--right">
+      <button type="button" id="zoom-pasarela" class="album-side-photo__button" aria-label="Ampliar foto nocturna de Abel en una pasarela">
+        <img src="assets/abel_pasarela_noche.webp" width="360" height="480" loading="lazy" decoding="async" alt="Abel con camiseta negra y zapatillas rojas junto a una estructura metálica azul iluminada por la noche">
+        <span class="album-side-photo__zoom" aria-hidden="true">⤢</span>
+      </button>
+    </figure>
+  </div>
   <p class="album-hint">Toca la foto para ampliarla <span aria-hidden="true">↗</span><br><span>Desliza hacia abajo para pedir un deseo</span> <span aria-hidden="true">↓</span></p>
   <section class="wish-section" id="deseo" aria-labelledby="wish-title">
     <div class="wish-arc" aria-hidden="true"><span>✦</span></div>
@@ -134,11 +148,11 @@
   <p class="credit">ABEL CORAS BORDA · 11 NOVIEMBRE 2026</p>
  </main>
 </div>
-<dialog id="album-modal" class="album-modal" aria-label="Collage de Abel ampliado">
+<dialog id="album-modal" class="album-modal" aria-label="Fotografía de Abel ampliada">
   <button type="button" class="album-modal-close" id="close-album" aria-label="Cerrar imagen ampliada">✕</button>
   <div class="album-modal-inner">
-    <img src="assets/album-abel.webp" width="1122" height="1402" loading="lazy" decoding="async" alt="Collage completo del álbum de cumpleaños de Abel">
-    <a class="modal-download" href="assets/album-abel.webp" download="Album-Abel-Coras-Borda.webp">Descargar imagen <span aria-hidden="true">↓</span></a>
+    <img id="album-modal-image" src="assets/album-abel.webp" width="1122" height="1402" loading="lazy" decoding="async" alt="Collage completo del álbum de cumpleaños de Abel">
+    <a id="album-modal-download" class="modal-download" href="assets/album-abel.webp" download="Album-Abel-Coras-Borda.webp">Descargar imagen <span aria-hidden="true">↓</span></a>
   </div>
 </dialog>
 <!-- Este botón permanece oculto al abrir el regalo; solo reaparece al cerrar el video. -->
@@ -157,6 +171,6 @@
   </div>
 </aside>
 <p class="toast" id="toast" role="status" hidden></p>
-<script type="module" src="js/app.js?v=loop-oval-1"></script>
+<script type="module" src="js/app.js?v=galeria-tres-fotos-1"></script>
 </body>
 </html>

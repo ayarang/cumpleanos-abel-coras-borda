@@ -55,19 +55,37 @@ secretButton?.addEventListener('click',()=>{
   secretButton.setAttribute('aria-expanded',String(!expanded));
   if(secretPhrase)secretPhrase.hidden=expanded;
 });
-const imageModal=$('album-modal'),zoomButton=$('zoom-album'),closeModalButton=$('close-album');
-zoomButton.addEventListener('click',()=>{
-  if(typeof imageModal.showModal!=='function'){
-    window.open('assets/album-abel.webp','_blank','noopener');
-    return;
-  }
-  imageModal.showModal();
-  document.body.classList.add('album-open');
-  closeModalButton.focus({preventScroll:true});
-});
+// El mismo visor permite ampliar el collage central o cualquiera de las fotos laterales.
+const imageModal=$('album-modal'),closeModalButton=$('close-album');
+const modalImage=$('album-modal-image'),modalDownload=$('album-modal-download');
+let lastImageTrigger=null;
+const galleryPhotos=[
+  {id:'zoom-album',url:'assets/album-abel.webp',name:'Album-Abel-Coras-Borda.webp',alt:'Collage completo de Abel con cuatro fotografías de montaña y motocicletas',width:1122,height:1402},
+  {id:'zoom-mirador',url:'assets/abel_mirador_noche.webp',name:'Abel-Mirador-Noche.webp',alt:'Abel en un mirador nocturno junto al mar',width:360,height:480},
+  {id:'zoom-pasarela',url:'assets/abel_pasarela_noche.webp',name:'Abel-Pasarela-Noche.webp',alt:'Abel en una pasarela junto a una estructura metálica azul',width:360,height:480}
+];
+for(const photo of galleryPhotos){
+  const trigger=$(photo.id);
+  trigger?.addEventListener('click',()=>{
+    lastImageTrigger=trigger;
+    if(typeof imageModal.showModal!=='function'){
+      window.open(photo.url,'_blank','noopener');
+      return;
+    }
+    modalImage.src=photo.url;
+    modalImage.alt=photo.alt;
+    modalImage.width=photo.width;
+    modalImage.height=photo.height;
+    modalDownload.href=photo.url;
+    modalDownload.download=photo.name;
+    imageModal.showModal();
+    document.body.classList.add('album-open');
+    closeModalButton.focus({preventScroll:true});
+  });
+}
 closeModalButton.addEventListener('click',()=>imageModal.close());
 imageModal.addEventListener('click',event=>{if(event.target===imageModal)imageModal.close()});
 imageModal.addEventListener('close',()=>{
   document.body.classList.remove('album-open');
-  zoomButton.focus({preventScroll:true});
+  lastImageTrigger?.focus({preventScroll:true});
 });
